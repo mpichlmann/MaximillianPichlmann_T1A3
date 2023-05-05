@@ -17,7 +17,11 @@ def game_over():
             print("Invalid Choice")
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
+def manor():
+    pass
+
 def church():
+    global signpost_visited
     signpost_visited = True
     print("---------------------------------------------------------")
     print("You follow the direction the sign pointed until you come across a church")
@@ -47,14 +51,12 @@ def church():
             print("Invalid Choice")
             move = input("do you [knock] at the door, simply [open] the door and let yourself in, do you [look] in through a window or head [back] to the signpost? ")
 
-
-
-
 def kitchen():
     print("you enter the kitchen")
 
 def mess_hall():
-    
+    global signpost_visited
+    signpost_visited = True
     print("---------------------------------------------------------")
     print("You follow the path until you reach a large wooden building")
     print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
@@ -66,7 +68,7 @@ def mess_hall():
         elif move == 'kitchen':
             kitchen()
         elif move == 'back':
-            signpost_visited = True
+            
             signpost()
         else: 
             print("Invalid Choice")
