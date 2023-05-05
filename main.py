@@ -14,6 +14,24 @@ def game_over():
             print("Invalid Choice")
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
+def signpost():
+    print("The path leads to a clearing in the trees, you can make out the shape of buildings in the dark")
+    print("you appear to be in some sort of summer camp, in front of you is a signpost")
+    print("the signpost has different destinations on it, each pointing to it's respective destination")
+    move = input("The signpost reads [mess hall],[dorms],[church],[manor]")
+    if move == 'mess hall':
+        mess_hall()
+    elif move == 'dorms':
+        dorms()
+    elif move == 'chuch':
+        church()
+    elif move == 'manor':
+        manor()
+    else: 
+        print("Invalid Choice")
+        signpost()
+
+
 def gate():
     print("On the other side of the gate you see a dog sleeping and a path leading up to the source of the musi")
     move = input("do you [pet] the dog or continue up the [path]? ")
