@@ -1,10 +1,17 @@
 def game_over():
     print("---------------------------------------------------------")
     print("YOU DIED: GAME OVER")
-    game_over_choice = input("Would you like to [play] again? ")
-    if game_over_choice == "play":
-        starting_room()
-    else: 
+    game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
+    while True:
+        if game_over_choice == "play":
+            starting_room()
+            break
+        elif game_over_choice == "quit":
+            print("Thanks for playing!")
+            break
+        else: 
+            print("Invalid Choice")
+            game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
 def road():
     print("you are on a road")
