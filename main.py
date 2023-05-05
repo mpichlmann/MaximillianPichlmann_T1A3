@@ -1,4 +1,7 @@
 import sys
+
+signpost_visited = False
+
 def game_over():
     print("---------------------------------------------------------")
     print("YOU DIED: GAME OVER")
@@ -14,10 +17,9 @@ def game_over():
             print("Invalid Choice")
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
-def signpost():
-    print("The path leads to a clearing in the trees, you can make out the shape of buildings in the dark")
-    print("you appear to be in some sort of summer camp, in front of you is a signpost")
-    print("the signpost has different destinations on it, each pointing to it's respective destination")
+def signpost_return():
+    print("you return to the signpost")
+    print("you notice you can no longer hear the music or the singing that you did previously")
     move = input("The signpost reads [mess hall],[dorms],[church],[manor]")
     if move == 'mess hall':
         mess_hall()
@@ -31,6 +33,45 @@ def signpost():
         print("Invalid Choice")
         signpost()
 
+def kitchen():
+    print("you enter the kitchen")
+
+def mess_hall():
+    signpost_visited = True
+    print("You follow the path until you reach a large wooden building")
+    print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
+    print("Amongst all the empty dishes you see a bowl of soup it seems someone has left out")
+    move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
+    if move == 'eat':
+        print("You eat the soup, it tastes funny, ")
+    elif move == 'kitchen':
+        kitchen()
+    elif move == 'back':
+        signpost_return()
+    else: 
+        print("Invalid Choice")
+        signpost()
+
+def signpost():
+    if signpost_visited == False:
+        print("The path leads to a clearing in the trees, you can make out the shape of buildings in the dark")
+        print("you appear to be in some sort of summer camp, singing can now be heard accompanying the music")
+        print("In front of you is a signpost with different destinations on it")
+    else:
+        print("you return to the signpost")
+        print("you notice you can no longer hear the music or the singing that you did previously")
+    move = input("The signpost reads [mess hall],[dorms],[church],[manor]")
+    if move == 'mess hall':
+        mess_hall()
+    elif move == 'dorms':
+        dorms()
+    elif move == 'chuch':
+        church()
+    elif move == 'manor':
+        manor()
+    else: 
+        print("Invalid Choice")
+        signpost()
 
 def gate():
     print("On the other side of the gate you see a dog sleeping and a path leading up to the source of the musi")
@@ -45,7 +86,6 @@ def gate():
         print("Invalid Choice")
         gate()
         
-
 def road():
     print("---------------------------------------------------------")
     print("you walk up the road on foot, the music grows")
@@ -103,9 +143,8 @@ def car_wait():
         print("Invalid Choice")
         car_wait()
         
-
-
 def starting_room():
+    signpost_visted = False
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
     print("you are driving to a friends wedding, and decided to take a shortcut")
@@ -125,15 +164,13 @@ def starting_room():
         starting_room()
 
 print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
-print("Your goal is to reach the end and save the day!")
-print("Throughout the game you will be presented with choices")
-print("Your options will be presented in [square] brackets")
-print("simply type your option to proceed, but be careful!")
+print("Your goal is to reach the end without dying and save the day!")
+print("Throughout the game you will be presented with choices in [square] brackets")
+print("simply type the option in square brackets to proceed, but be careful!")
 ready = input("Ready to [play]? or [quit] game? ")
 while True:
     if ready == "play":
         starting_room()
-        
     elif ready == "quit":
         sys.exit()
     else:
