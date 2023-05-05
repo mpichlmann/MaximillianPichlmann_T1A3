@@ -15,7 +15,18 @@ def game_over():
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
 def gate():
-    pass
+    print("On the other side of the gate you see a dog sleeping and a path leading up to the source of the musi")
+    move = input("do you [pet] the dog or continue up the [path]? ")
+    if move == 'pet':
+        print("As you touch the dog, it wakes up and attacks you!")
+        game_over()
+    elif move == 'path':
+        print("You continue up the path, the music gets louder")
+        signpost()
+    else: 
+        print("Invalid Choice")
+        gate()
+        
 
 def road():
     print("---------------------------------------------------------")
@@ -29,7 +40,7 @@ def road():
         print("You strike the lock, and suddenly a vicious dog jumps through the cutout and attacks you")
         game_over()
     elif move == 'climb':
-        print("you stack the boxes and climb the fence")
+        print("you stack the boxes and climb the gate")
         gate()
     else:
         print("Invalid Choice")
