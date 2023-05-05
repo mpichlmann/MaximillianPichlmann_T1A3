@@ -1,7 +1,12 @@
-
-
+def game_over():
+    print("---------------------------------------------------------")
+    print("YOU DIED: GAME OVER")
+    game_over_choice = input("Would you like to [play] again? ")
+    if game_over_choice == "play":
+        starting_room()
 
 def wood_death():
+    print("---------------------------------------------------------")
     print("you wander into the woods")
     print("the music you heard before starts to grow")
     print("as you draw closer, you hear a click beneath your feet")
@@ -10,6 +15,7 @@ def wood_death():
     game_over()
 
 def starting_room():
+    print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
     print("Trees surround you on either side of the road")
     print("Your engine whines and sputters, the car slows to a halt")
