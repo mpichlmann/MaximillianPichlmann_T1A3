@@ -54,7 +54,7 @@ def church():
             print("standing opposite the woman is a figure in a red robe, holding a tome in one hand, and an ornate knife in the other")
             print("You think to yourself 'Maybe that woman in the mechanics uniform can help me fix my car!'")
             print("you also think she might be in a bit of trouble and be in need of some rescuing")
-            move = input("do you [knock] at the door, simply [open] the door and let yourself in or head [back] to the signpost? ")
+            move = input("do you [knock] at the door, simply [open] the door and let yourself in, do you [look] in through a window or head [back] to the signpost? ")
         elif move == 'back':
             signpost()
         else:
@@ -64,9 +64,7 @@ def church():
 def kitchen():
     global kitchen_return 
     kitchen_return = True
-    print("---------------------------------------------------------")
     print("you enter the kitchen")
-    print("---------------------------------------------------------")
     move = input("you can't see any point to being in the kitchen and think you should head [back]")
     if move == 'back': 
         mess_hall()
@@ -83,35 +81,25 @@ def mess_hall():
         print("You follow the path until you reach a large wooden building")
         print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
         print("Amongst all the empty dishes you see a bowl of soup it seems someone has left out")
-        print("---------------------------------------------------------")
         move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
     elif kitchen_return == False and soup_eaten > 0:
         print("---------------------------------------------------------")
         print("You follow the path until you reach a large wooden building")
         print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
-        print("---------------------------------------------------------")
         move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
     elif kitchen_return == True and soup_eaten == 0:
-        print("---------------------------------------------------------")
         print("you head back to the dining area")
-        print("---------------------------------------------------------")
         move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
     else:
-        print("---------------------------------------------------------")
         print("you head back to the dining area")
-        print("---------------------------------------------------------")
         move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
     while True:
         if move == 'eat':
             if soup_eaten == 0:
                 soup_eaten += 1
-                print("---------------------------------------------------------")
                 print("You eat the soup, it tastes funny, ")
-                print("---------------------------------------------------------")
             else: 
-                print("---------------------------------------------------------")
                 print("YOU ALREADY ATE THE SOUP, nice try though")
-                print("---------------------------------------------------------")
             move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
         elif move == 'kitchen':
             kitchen()
@@ -130,12 +118,10 @@ def signpost():
         print("The path leads to a clearing in the trees, you can make out the shape of buildings in the dark")
         print("you appear to be in some sort of summer camp, singing can now be heard accompanying the music")
         print("In front of you is a signpost with different destinations on it")
-        print("---------------------------------------------------------")
     else:
         print("---------------------------------------------------------")
         print("you return to the signpost")
         print("you notice you can no longer hear the music or the singing that you did previously")
-        print("---------------------------------------------------------")
     move = input("The signpost reads [mess hall],[dorms],[church],[manor]")
     if move == 'mess hall':
         mess_hall()
@@ -171,7 +157,6 @@ def road():
     print("you see a little cutout in the gate but not big enough to squeeze through")
     print("the music is coming from the other side of the gate, perhaps someone there knows how to fix a car?")
     print("you see a rusty lock on the gate, and some boxes next to the gate")
-    print("---------------------------------------------------------")
     move = input("do you want to [smash] the lock with a rock? or [climb] the fence with the boxes? ")
     if move == "smash":
         print("You strike the lock, and suddenly a vicious dog jumps through the cutout and attacks you")
@@ -206,11 +191,10 @@ def car_wait():
     move = input("do you want to [wait] some more, explore the [woods] or walk up the [road] on foot? ")
     while move == 'wait':
         if wait_time < len(wait_messages):
-            print("---------------------------------------------------------")
             print(wait_messages[wait_time])
+            print("---------------------------------------------------------")
             wait_time += 1
         else:
-            print("---------------------------------------------------------")
             print("you die from the exhaustion of waiting for a miracle, what a pitiful way to go")
             game_over()
         move = input("do you want to [wait] some more, explore the [woods] or walk up the [road] on foot? ")
