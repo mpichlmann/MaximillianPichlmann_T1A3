@@ -27,8 +27,20 @@ def game_over():
 
 def manor_second():
     pass
+
 def manor_kitchen():
-    pass
+    print("---------------------------------------------------------")
+    print("You enter the kitchen, it's remarkably tidy")
+    print("The shelves are all empty, except for one loan plate and a single glass")
+    print("You think to yourself that whoever lives here must live a solitary life")
+    print("---------------------------------------------------------")
+    move = input("You might as well head [back] ")
+    while True:
+        if move == 'back':
+            manor_first()
+        else: 
+            print("Invalid Choice")
+            move = input("Do you head [back]? ")
 
 def painting():
     print("---------------------------------------------------------")
