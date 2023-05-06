@@ -7,8 +7,9 @@ soup_eaten = 0
 note_picked = 0
 
 def game_over():
-    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-    print("YOU DIED: GAME OVER")
+    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+    print("-------------------YOU DIED: GAME OVER-------------------")
+    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
     else:
@@ -17,7 +18,6 @@ def game_over():
     while True:
         if game_over_choice == "play":
             starting_room()
-            break
         elif game_over_choice == "quit":
             print("Thanks for playing!")
             sys.exit()
@@ -183,7 +183,7 @@ def church():
             print("---------------------------------------------------------")
             print("you hear a high pitched voice scream out for help")
             print("---------------------------------------------------------")
-            move = input("do you [knock] at the door, simply [open] the door and let yourself in or head [back] to the signpost? ")
+            move = input("do you [knock] at the door, simply [open] the door and let yourself in, [look] through a window or head [back] to the signpost? ")
         elif move == "open":
             print("---------------------------------------------------------")
             print("You try to the door but can't, the door is locked")
@@ -287,6 +287,8 @@ def signpost():
         print("In front of you is a signpost with different destinations on it")
         print("---------------------------------------------------------")
     else:
+        global church_quiet
+        church_quiet = True
         print("---------------------------------------------------------")
         print("you return to the signpost")
         print("you notice you can no longer hear the music or the singing that you did previously")
@@ -378,8 +380,15 @@ def car_wait():
         car_wait()
         
 def starting_room():
+    #RESETTING VARIABLES
     global signpost_visited
     signpost_visited = False
+    global church_quiet
+    church_quiet = False
+    global soup_eaten
+    soup_eaten = 0
+    global note_picked
+    note_picked = 0
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
     print("you are driving to a friends wedding, and decided to take a shortcut")
@@ -399,18 +408,22 @@ def starting_room():
         else:
             print("Invalid choice.")
             choice = input("Do you.. [wait]? walk up the [road] on foot? or explore the [woods]? ")
-print("---------------------------------------------------------")
-print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
-print("Your goal is to reach the end without dying and save the day!")
-print("Throughout the game you will be presented with choices in [square] brackets")
-print("simply type the option in square brackets to proceed, but be careful!")
-print("---------------------------------------------------------")
-ready = input("Ready to [play]? or [quit] game? ")
-while True:
-    if ready == "play":
-        starting_room()
-    elif ready == "quit":
-        sys.exit()
-    else:
-        print("Invalid Choice")
-        ready = input("Ready to [play]? or [quit] game? ")
+
+def game_start():
+    print("---------------------------------------------------------")
+    print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
+    print("Your goal is to reach the end without dying and save the day!")
+    print("Throughout the game you will be presented with choices in [square] brackets")
+    print("simply type the option in square brackets to proceed, but be careful!")
+    print("---------------------------------------------------------")
+    ready = input("Ready to [play]? or [quit] game? ")
+    while True:
+        if ready == "play":
+            starting_room()
+        elif ready == "quit":
+            sys.exit()
+        else:
+            print("Invalid Choice")
+            ready = input("Ready to [play]? or [quit] game? ")
+
+game_start()
