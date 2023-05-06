@@ -7,14 +7,14 @@ soup_eaten = 0
 note_picked = 0
 inventory = []
 
+
+
 def game_over():
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print("-------------------YOU DIED: GAME OVER-------------------")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
-    else:
-        pass
     game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
     while True:
         if game_over_choice == "play":
@@ -25,6 +25,11 @@ def game_over():
         else: 
             print("Invalid Choice")
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
+
+
+def inside_church():
+    print("you enter the church, it's cold and the smell of sulfur is noticeable")
+    print("'Please help me!' the woman screams 'These crazy cultists kidnapped me'")
 
 def inside_box():
     print("---------------------------------------------------------")
@@ -225,7 +230,7 @@ def book():
 def study():
     global note_picked
     print("---------------------------------------------------------")
-    print("You enter the study where you see a loan chair faced towards a painting")
+    print("You enter the study where you see a lone chair faced towards a painting")
     print("next to the chair is a small table, on top sits a leatherbound book")
     print("---------------------------------------------------------")
     move = input("do you inspect the [painting] or inspect the [book] or head [back] ")
@@ -245,7 +250,7 @@ def manor_first():
     print("You're standing in the vestibule of the house, you see a study to the left, and some stairs to the right")
     print("In front of you is a small kitchen that seems recently tidied")
     print("---------------------------------------------------------")
-    move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")
+    move = input("do you investigate the [study], the [kitchen], head up the [stairs] or head [back] to the signpost? ")
     while True:
         if move == 'study':
             study()
@@ -253,6 +258,8 @@ def manor_first():
             manor_kitchen()
         elif move == 'stairs':
             manor_second()
+        elif move == 'back':
+            signpost()
         else:
             print("Invalid Choice")
             move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")
@@ -298,7 +305,7 @@ def church():
         print("---------------------------------------------------------")
     move = input("do you [knock] at the door, simply [open] the door and let yourself in, do you [look] in through a window or head [back] to the signpost? ")
     while True:
-        if move == "knock" and church_quiet == False:
+        if move == 'knock' and church_quiet == False:
             print("---------------------------------------------------------")
             print("the music and chanting stops, you hear boots marching towards the door")
             print("the door swings open, you are met by a group of people donned in hoods")
@@ -310,11 +317,16 @@ def church():
             print("you hear a high pitched voice scream out for help")
             print("---------------------------------------------------------")
             move = input("do you [knock] at the door, simply [open] the door and let yourself in, [look] through a window or head [back] to the signpost? ")
-        elif move == "open":
-            print("---------------------------------------------------------")
-            print("You try to the door but can't, the door is locked")
-            print("---------------------------------------------------------")
-            move = input("do you [knock] at the door, simply [open] the door and let yourself in, do you [look] in through a window or head [back] to the signpost? ")
+        elif move == 'open':
+            if "key" in inventory:
+                inside_church()
+            else:
+                print("---------------------------------------------------------")
+                print("You try to the door but can't, the door is locked")
+                print("---------------------------------------------------------")
+                move = input("do you [knock] at the door, simply [open] the door and let yourself in, do you [look] in through a window or head [back] to the signpost? ")
+        
+        
         elif move == 'look' and church_quiet == False:
             print("---------------------------------------------------------")
             print("You peer through the window and see a group of hooded figures in black robes standing in a circle")
@@ -410,6 +422,7 @@ def signpost():
         print("You continue up the path, the music gets louder")
         print("The path leads to a clearing in the trees, you can make out the shape of buildings in the dark")
         print("you appear to be in some sort of summer camp, singing can now be heard accompanying the music")
+        print("The music and singing seems to be coming from a church you can see up the way")
         print("In front of you is a signpost with different destinations on it")
         print("---------------------------------------------------------")
     else:
@@ -517,6 +530,7 @@ def starting_room():
     note_picked = 0
     global box_open
     box_open = False
+    inventory = []
 
     #Opening Text
     print("---------------------------------------------------------")
