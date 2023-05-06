@@ -22,9 +22,36 @@ def game_over():
 
 def manor_second():
     pass
-
-def manor_first():
+def manor_kitchen():
     pass
+
+def painting():
+
+
+def study():
+    print("---------------------------------------------------------")
+    print("You enter the study where you see a loan chair faced towards a painting")
+    print("next to the chair is a small table, on top sits a leatherbound book")
+    print("---------------------------------------------------------")
+    move = input("do you inspect the [painting] or inspect the [book]? ")
+    
+    
+def manor_first():
+    print("---------------------------------------------------------")
+    print("You enter the house, you see a study to the left, and some stairs to the right")
+    print("In front of you is a small kitchen that seems recently tidied")
+    print("---------------------------------------------------------")
+    move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")
+    while True:
+        if move == 'study':
+            study()
+        elif move == 'kitchen':
+            manor_kitchen()
+        elif move == 'stairs':
+            manor_second()
+        else:
+            print("Invalid Choice")
+            move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")
 
 def manor():
     global signpost_visited
@@ -34,16 +61,18 @@ def manor():
     print("---------------------------------------------------------")
     print("you follow the path to until you reach a double story house")
     print("The house resembles an old victorian architectural style")
+    print("It's small, definitely not a manor by any means, you wonder why it would be referred to as such")
     print("you notice the door is wide open")
     print("---------------------------------------------------------")
     move = input("do you [enter] the house or head [back] to the signpost? ")
-    if move == 'enter':
-        manor_first()
-    elif move == 'back':
-        signpost()
-    else:
-        print("Invalid Choice")
-        move = input("do you [enter] the house or head [back] to the signpost? ")
+    while True:
+        if move == 'enter':
+            manor_first()
+        elif move == 'back':
+            signpost()
+        else:
+            print("Invalid Choice")
+            move = input("do you [enter] the house or head [back] to the signpost? ")
 
 
 def church():
@@ -112,10 +141,12 @@ def kitchen():
     print("you enter the kitchen")
     print("---------------------------------------------------------")
     move = input("you can't see any point to being in the kitchen and think you should head [back]")
-    if move == 'back': 
-        mess_hall()
-    else: 
-        print("Invalid Choice")
+    while True:
+        if move == 'back': 
+            mess_hall()
+        else: 
+            print("Invalid Choice")
+            move = input("you can't see any point to being in the kitchen and think you should head [back]")
         
 
 def mess_hall():
@@ -183,15 +214,16 @@ def signpost():
         print("you notice you can no longer hear the music or the singing that you did previously")
         print("---------------------------------------------------------")
     move = input("The signpost reads [mess hall],[church],[manor] ")
-    if move == 'mess hall':
-        mess_hall()
-    elif move == 'church':
-        church()
-    elif move == 'manor':
-        manor()
-    else: 
-        print("Invalid Choice")
-        signpost()
+    while True:
+        if move == 'mess hall':
+            mess_hall()
+        elif move == 'church':
+            church()
+        elif move == 'manor':
+            manor()
+        else: 
+            print("Invalid Choice")
+            move = input("The signpost reads [mess hall],[church],[manor] ")
 
 def gate():
     print("---------------------------------------------------------")
@@ -199,14 +231,15 @@ def gate():
     print("now that you're on the other side of the gate you see a sleeping dog and a path leading up to the source of the music")
     print("---------------------------------------------------------")
     move = input("do you [pet] the dog or continue up the [path]? ")
-    if move == 'pet':
-        print("As you touch the dog, it wakes up and attacks you!")
-        game_over()
-    elif move == 'path':
-        signpost()
-    else: 
-        print("Invalid Choice")
-        gate()
+    while True:
+        if move == 'pet':
+            print("As you touch the dog, it wakes up and attacks you!")
+            game_over()
+        elif move == 'path':
+            signpost()
+        else: 
+            print("Invalid Choice")
+            move = input("do you [pet] the dog or continue up the [path]? ")
         
 def road():
     print("---------------------------------------------------------")
@@ -217,15 +250,15 @@ def road():
     print("you see a rusty lock on the gate, and some boxes next to the gate")
     print("---------------------------------------------------------")
     move = input("do you want to [smash] the lock with a rock? or [climb] the fence with the boxes? ")
-    if move == "smash":
-        print("You strike the lock, and suddenly a vicious dog jumps through the cutout and attacks you")
-        game_over()
-    elif move == 'climb':
-        
-        gate()
-    else:
-        print("Invalid Choice")
-        road()
+    while True:
+        if move == "smash":
+            print("You strike the lock, and suddenly a vicious dog jumps through the cutout and attacks you")
+            game_over()
+        elif move == 'climb':
+            gate()
+        else:
+            print("Invalid Choice")
+            move = input("do you want to [smash] the lock with a rock? or [climb] the fence with the boxes? ")
 
 def wood_death():
     print("---------------------------------------------------------")
