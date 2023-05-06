@@ -21,6 +21,10 @@ def game_over():
 def game_complete():
     print("-------------------------------------------------------------")
     print("You rescue the mechanic preventing her from becoming a demon!")
+    print("The two of you walk back to your car, where she helps fix it.")
+    print("You give her a ride to a local police station where you both ")
+    print("share your story. After the freaky events of the night you   ")
+    print("get back out on the road, and make it to your friends wedding")
     print("-------------------------------------------------------------")
     print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ ")
     print("------------------YOU WIN: GAME COMPLETE---------------------")
