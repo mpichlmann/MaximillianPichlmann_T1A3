@@ -1,20 +1,11 @@
 import sys
 import os
 
-church_quiet = False
-signpost_visited = False
-soup_eaten = 0
-note_picked = 0
-inventory = []
-
-
-
 def game_over():
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print("-------------------YOU DIED: GAME OVER-------------------")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-    if os.path.isfile("note.txt"):
-        os.remove("note.txt")
+    
     game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
     while True:
         if game_over_choice == "play":
@@ -27,9 +18,35 @@ def game_over():
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
 
+def game_complete():
+    print("-------------------------------------------------------------")
+    print("You rescue the mechanic preventing her from becoming a demon!")
+    print("-------------------------------------------------------------")
+    print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ ")
+    print("------------------YOU WIN: GAME COMPLETE---------------------")
+    print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
+    sys.exit()
+
+
 def inside_church():
+    print("---------------------------------------------------------")
     print("you enter the church, it's cold and the smell of sulfur is noticeable")
+    print("you see a woman in a mechanics uniform tied to an upside down crowss")
+    print("all around her are figures in robes lying motionless")
     print("'Please help me!' the woman screams 'These crazy cultists kidnapped me'")
+    print("they drank something and said if I stay here on this cross all night I'll turn into a demon'")
+    print("'I just want to get out of here and go back to my job fixing cars as a mechanic!!'")
+    print("you think to yourself, 'wow this has worked out perfectly'")
+    print("---------------------------------------------------------")
+    move = input("do you [rescue] the mechanic, or for some unimaginable reason head [back] to the signpost? ")
+    while True:
+        if move == 'rescue':
+            game_complete()
+        elif move == 'back':
+            signpost()
+        else:
+            print("Invalid Choice")
+            move = input("do you [rescue] the mechanic, or for some unimaginable reason head [back] to the signpost? ")
 
 def inside_box():
     print("---------------------------------------------------------")
@@ -530,8 +547,10 @@ def starting_room():
     note_picked = 0
     global box_open
     box_open = False
+    global inventory
     inventory = []
-
+    if os.path.isfile("note.txt"):
+        os.remove("note.txt")
     #Opening Text
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
