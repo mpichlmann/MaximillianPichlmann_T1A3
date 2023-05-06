@@ -26,7 +26,20 @@ def game_over():
             game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
 
 def inside_box():
-    print("Inside the box is a key")
+    print("---------------------------------------------------------")
+    print("The box opens to reveal its contents")
+    print("Inside is a golden key with a cross on it")
+    print("you take the key")
+    print("---------------------------------------------------------")
+    move = input ("do you inspect the [photo] or head [back]? ")
+    while True: 
+        if move == 'back':
+            manor_first()
+        elif move == 'photo':
+            photo()
+        else:
+            print("Invalid Choice")
+            move = input ("do you inspect the [photo] or head [back]? ")
 
 def box():
     global box_open
@@ -52,11 +65,7 @@ def box():
                 # Check if the user entered the complete correct sequence
                 if current_sequence == correct_sequence or set(current_sequence) == set(correct_sequence):
                     box_open = True
-                    print("---------------------------------------------------------")
-                    print("The box opens to reveal its contents")
-                    print("Inside is a golden key with a cross on it")
-                    print("you take the key")
-                    print("---------------------------------------------------------")
+                    inside_box()
                 # If the user entered the correct button in the right order, display satisfying click
                 elif move == correct_sequence[len(current_sequence)-1]:
                     print("---------------------------------------------------------")
@@ -76,6 +85,25 @@ def box():
             print("Invalid Choice")    
         move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")
 
+def photo():
+    print("---------------------------------------------------------")
+    print("the photo is a picture of a young boy standing next to an older gaunt looking man")
+    print("The pair is standing in front of a church, the boy looks sad")
+    print("---------------------------------------------------------")
+    move = input("do you look at the [photo] again, inspect the [box], or head [back] ")
+    while True: 
+        if move == 'photo':
+            photo()
+        elif move == 'box' and box_open == False:
+            box()
+        elif move == 'box' and box_open == True:
+            print("You return to the box, proud of how you so brilliantly conquered it's puzzle")
+            move = input("do you look at the [photo], or head [back] ")
+        elif move == 'back':
+            manor_first()
+        else:
+            print("Invalid Choice")
+            move = input("do you look at the [photo] again, inspect the [box], or head [back] ")
 
 def manor_second():
     global box_open
@@ -88,11 +116,7 @@ def manor_second():
     move = input("do you inspect the [box], look at the [photo], or head [back] ")
     while True:
         if move == 'photo':
-            print("---------------------------------------------------------")
-            print("the photo is a picture of a young boy standing next to an older gaunt looking man")
-            print("The pair is standing in front of a church, the boy looks sad")
-            print("---------------------------------------------------------")
-            move = input("do you look at the [photo] again, inspect the [box], or head [back] ")
+            photo()
         elif move == 'box' and box_open == False:
             box()
         elif move == 'box' and box_open == True:
