@@ -34,3 +34,32 @@ with open('note.txt', 'r') as file:
 
 with open('note.txt', 'w') as file:
     file.write("In great veneration of their master, \nthe people offered up their most prized possesions. \n\nThe old farmer, his finest crop. \nThe slight swineheard, his stoutest pig. \nThe beggarly grandam, her beloved babe. \n\nThe master saw these gifts and was pleased")
+
+
+def box():
+    print("---------------------------------------------------------")
+    print("The box is made of fine wood and trimmed in gold")
+    print("opening it proves challenging as it seems to be locked")
+    print("you notice that the box is adorned with circular pieces of stone")
+    print("each stone contains a symbol, and there are 9 stones in total")
+    print("upon touching one you realise that the stones are in fact buttons that can be pressed")
+    print("---------------------------------------------------------")
+    correct_sequence = ["wheat", "pig", "baby"]
+    current_sequence = []
+    move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back]" )
+    while True:
+        if move == 'back':
+            manor_first()
+        elif move in ["pig", "bird", "bear", "baby", "wheat", "apple", "sword", "sheep", "snake"]:
+            current_sequence.append(move)
+            if current_sequence == correct_sequence:
+                print("The box opens to reveal its contents")
+                break
+            elif len(current_sequence) == len(correct_sequence) and current_sequence != correct_sequence:
+                print("The box doesn't seem to open. Maybe you pressed the wrong sequence of buttons?")
+                current_sequence = []
+            else:
+                print("You pressed the", move, "button")
+        else:
+            print("Invalid Choice")
+        move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \n or head [back] ")
