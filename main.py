@@ -79,7 +79,7 @@ def box():
     print("upon touching one you realise that the stones are in fact buttons that can be pressed")
     print("---------------------------------------------------------")
     
-    correct_sequence = ["wheat", "pig", "baby"]
+    correct_sequence = ["sword", "pig", "apple"]
     current_sequence = []
 
     move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")
@@ -229,7 +229,7 @@ def book():
         print("As you flick through the pages, a small note falls out")
         print("---------------------------------------------------------")
         with open('note.txt', 'w') as file:
-            file.write("In great veneration of their master, \nthe people offered up their most prized possesions. \n\nThe old farmer, his finest crop. \nThe slight swineheard, his stoutest pig. \nThe beggarly grandam, her beloved babe. \n\nThe master saw these gifts and was pleased")
+            file.write("So it goes the parable of summoning, \nLet those who know it's secrets hold these words. \n\nCut down the non-believers. \nCast away the swine of foolishness. \nPartake in the fruit of our lord. \n\nWith these words, let what has fallen rise again")
         note_picked += 1
         move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
         while True:
