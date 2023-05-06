@@ -5,6 +5,7 @@ church_quiet = False
 signpost_visited = False
 soup_eaten = 0
 note_picked = 0
+inventory = []
 
 def game_over():
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
@@ -31,6 +32,7 @@ def inside_box():
     print("Inside is a golden key with a cross on it")
     print("you take the key")
     print("---------------------------------------------------------")
+    inventory.append("key")
     move = input ("do you inspect the [photo] or head [back]? ")
     while True: 
         if move == 'back':
@@ -74,13 +76,25 @@ def box():
                 else:
                     print("---------------------------------------------------------")
                     print("You hear a 'thunk' noise that doesn't sound right")
+                    if os.path.isfile("note.txt"):
+                        print("maybe that [note] you found earlier might help")
                     print("---------------------------------------------------------")
                     current_sequence = []                  
             else:
                 print("---------------------------------------------------------")
                 print("You hear a 'thunk' noise that doesn't sound quite right")
+                if os.path.isfile("note.txt"):
+                        print("maybe that [note] you found earlier might help")
                 print("---------------------------------------------------------")
-                current_sequence = []               
+                current_sequence = []  
+
+        elif move == 'note':
+            print("---------------------------------------------------------")
+            with open('note.txt', 'r') as file:
+                note_contents = file.read()
+                print(note_contents)
+            print("---------------------------------------------------------")
+            move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")        
         else:
             print("Invalid Choice")    
         move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")
