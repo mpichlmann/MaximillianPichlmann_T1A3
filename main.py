@@ -1,13 +1,18 @@
 import sys
-
+import os
 
 church_quiet = False
 signpost_visited = False
 soup_eaten = 0
+note_picked = 0
 
 def game_over():
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print("YOU DIED: GAME OVER")
+    if os.path.isfile("note.txt"):
+        os.remove("note.txt")
+    else:
+        pass
     game_over_choice = input("Would you like to [play] again? or do you want to [quit] playing? ")
     while True:
         if game_over_choice == "play":
@@ -26,19 +31,92 @@ def manor_kitchen():
     pass
 
 def painting():
-
+    print("---------------------------------------------------------")
+    print("The painting seems to contain a muscular figure front and center")
+    print("The figures skin is pale, but covered in patches thick dark hair")
+    print("The face is scratched out, making it indistinguishable")
+    print("The figure stands in front of flames and dark clouds")
+    print("You don't like the painting very much...")
+    print("---------------------------------------------------------")
+    move = input("do you inspect the [book] or head [back] ")
+    while True:
+        if move == 'book':
+            book()
+        elif move == 'back':
+            manor_first()
+        else:
+            print("Invalid Choice")
+            move = input("do you inspect the [book] or head [back] ")
+def book():
+    global note_picked
+    if note_picked > 0:
+        print("---------------------------------------------------------")
+        print("You open the book but can't make any sense of it")
+        print("The writing is in some language you've never seen before")
+        print("---------------------------------------------------------")
+        move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+        while True:
+            if move == 'painting':
+                painting()
+            elif move == 'back':
+                manor_first()
+            elif move =='note':
+                print("---------------------------------------------------------")
+                with open('note.txt', 'r') as file:
+                    note_contents = file.read()
+                    print(note_contents)
+                    print("---------------------------------------------------------")
+                move = input('do you inspect the [painting], or head [back] ')
+            else: 
+                print("Invalid Choice")
+                move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+    elif note_picked == 0:
+        print("---------------------------------------------------------")
+        print("You open the book but can't make any sense of it")
+        print("The writing is in some language you've never seen before")
+        print("As you flick through the pages, a small note falls out")
+        print("---------------------------------------------------------")
+        with open('note.txt', 'w') as file:
+            file.write("In great veneration of their master, \nthe people offered up their most prized possesions. \n\nThe old farmer, his finest crop. \nThe slight swineheard, his stoutest pig. \nThe beggarly grandam, her beloved babe. \n\nThe master saw these gifts and was pleased")
+        note_picked += 1
+        move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+        while True:
+            if move == 'painting':
+                painting()
+            elif move == 'back':
+                manor_first()
+            elif move =='note':
+                print("---------------------------------------------------------")
+                with open('note.txt', 'r') as file:
+                    note_contents = file.read()
+                    print(note_contents)
+                    print("---------------------------------------------------------")
+                move = input('do you inspect the [painting], or head [back] ')
+            else: 
+                print("Invalid Choice")
+                move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
 
 def study():
+    global note_picked
     print("---------------------------------------------------------")
     print("You enter the study where you see a loan chair faced towards a painting")
     print("next to the chair is a small table, on top sits a leatherbound book")
     print("---------------------------------------------------------")
-    move = input("do you inspect the [painting] or inspect the [book]? ")
-    
-    
+    move = input("do you inspect the [painting] or inspect the [book] or head [back] ")
+    while True:
+        if move == 'painting': 
+            painting()
+        elif move == 'book':
+            book()
+        elif move == 'back':
+            manor_first()
+        else:
+            print("Invalid Choice")
+            move = input("do you inspect the [painting] or inspect the [book] or head [back]? ")
+     
 def manor_first():
     print("---------------------------------------------------------")
-    print("You enter the house, you see a study to the left, and some stairs to the right")
+    print("You're standing in the vestibule of the house, you see a study to the left, and some stairs to the right")
     print("In front of you is a small kitchen that seems recently tidied")
     print("---------------------------------------------------------")
     move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")

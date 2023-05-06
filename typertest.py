@@ -27,3 +27,10 @@ def typer(text):
         print(text[0], end='', flush=True)  # typer the first character in the text
         time.sleep(0.05)  # Wait for a short amount of time
         typer(text[1:])  # Call the typer() function recursively with the remaining text
+
+with open('note.txt', 'r') as file:
+    note_contents = file.read()
+    print(note_contents)
+
+with open('note.txt', 'w') as file:
+    file.write("In great veneration of their master, \nthe people offered up their most prized possesions. \n\nThe old farmer, his finest crop. \nThe slight swineheard, his stoutest pig. \nThe beggarly grandam, her beloved babe. \n\nThe master saw these gifts and was pleased")
