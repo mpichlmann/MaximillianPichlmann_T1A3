@@ -82,7 +82,7 @@ def box():
     correct_sequence = ["sword", "pig", "apple"]
     current_sequence = []
 
-    move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")
+    move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back]? ")
 
     while True:
         if move == 'back':
@@ -120,17 +120,17 @@ def box():
                 note_contents = file.read()
                 print(note_contents)
             print("---------------------------------------------------------")
-            move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")        
+            move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back]? ")        
         else:
             print("Invalid Choice")    
-        move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back] ")
+        move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back]? ")
 
 def photo():
     print("---------------------------------------------------------")
     print("the photo is a picture of a young boy standing next to an older gaunt looking man")
     print("The pair is standing in front of a church, the boy looks sad")
     print("---------------------------------------------------------")
-    move = input("do you look at the [photo] again, inspect the [box], or head [back] ")
+    move = input("do you look at the [photo] again, inspect the [box], or head [back]? ")
     while True: 
         if move == 'photo':
             photo()
@@ -138,12 +138,12 @@ def photo():
             box()
         elif move == 'box' and box_open == True:
             print("You return to the box, proud of how you so brilliantly conquered it's puzzle")
-            move = input("do you look at the [photo], or head [back] ")
+            move = input("do you look at the [photo], or head [back]? ")
         elif move == 'back':
             manor_first()
         else:
             print("Invalid Choice")
-            move = input("do you look at the [photo] again, inspect the [box], or head [back] ")
+            move = input("do you look at the [photo] again, inspect the [box], or head [back]? ")
 
 def manor_second():
     global box_open
@@ -153,7 +153,7 @@ def manor_second():
     print("opposite the bed is a writing desk up against the wall")
     print("on the writing desk is what looks like a decorative box with several symbols on it")
     print("---------------------------------------------------------")
-    move = input("do you inspect the [box], look at the [photo], or head [back] ")
+    move = input("do you inspect the [box], look at the [photo], or head [back]? ")
     while True:
         if move == 'photo':
             photo()
@@ -161,12 +161,12 @@ def manor_second():
             box()
         elif move == 'box' and box_open == True:
             print("You return to the box, proud of how you so brilliantly conquered it's puzzle")
-            move = input("do you look at the [photo], or head [back] ")
+            move = input("do you look at the [photo], or head [back]? ")
         elif move == 'back':
             manor_first()
         else:
             print("Invalid Choice")
-            move = input("do you inspect the [box], look at the [photo], or head [back] ")
+            move = input("do you inspect the [box], look at the [photo], or head [back]? ")
 
 def manor_kitchen():
     print("---------------------------------------------------------")
@@ -190,7 +190,7 @@ def painting():
     print("The figure stands in front of flames and dark clouds")
     print("You don't like the painting very much...")
     print("---------------------------------------------------------")
-    move = input("do you inspect the [book] or head [back] ")
+    move = input("do you inspect the [book] or head [back]? ")
     while True:
         if move == 'book':
             book()
@@ -198,7 +198,7 @@ def painting():
             manor_first()
         else:
             print("Invalid Choice")
-            move = input("do you inspect the [book] or head [back] ")
+            move = input("do you inspect the [book] or head [back]? ")
 def book():
     global note_picked
     if note_picked > 0:
@@ -206,7 +206,7 @@ def book():
         print("You open the book but can't make any sense of it")
         print("The writing is in some language you've never seen before")
         print("---------------------------------------------------------")
-        move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+        move = input("do you inspect the [painting], read the [note] you found, or head [back]? ")
         while True:
             if move == 'painting':
                 painting()
@@ -221,7 +221,7 @@ def book():
                 move = input('do you inspect the [painting], or head [back] ')
             else: 
                 print("Invalid Choice")
-                move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+                move = input("do you inspect the [painting], read the [note] you found, or head [back]? ")
     elif note_picked == 0:
         print("---------------------------------------------------------")
         print("You open the book but can't make any sense of it")
@@ -231,7 +231,7 @@ def book():
         with open('note.txt', 'w') as file:
             file.write("So it goes the parable of summoning, \nLet those who know it's secrets hold these words. \n\nCut down the non-believers. \nCast away the swine of foolishness. \nPartake in the fruit of our lord. \n\nWith these words, let what has fallen rise again")
         note_picked += 1
-        move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+        move = input("do you inspect the [painting], read the [note] you found, or head [back]? ")
         while True:
             if move == 'painting':
                 painting()
@@ -246,7 +246,7 @@ def book():
                 move = input('do you inspect the [painting], or head [back] ')
             else: 
                 print("Invalid Choice")
-                move = input("do you inspect the [painting], read the [note] you found, or head [back] ")
+                move = input("do you inspect the [painting], read the [note] you found, or head [back]? ")
 
 def study():
     global note_picked
@@ -254,7 +254,7 @@ def study():
     print("You enter the study where you see a lone chair faced towards a painting")
     print("next to the chair is a small table, on top sits a leatherbound book")
     print("---------------------------------------------------------")
-    move = input("do you inspect the [painting] or inspect the [book] or head [back] ")
+    move = input("do you inspect the [painting], inspect the [book] or head [back]? ")
     while True:
         if move == 'painting': 
             painting()
@@ -264,7 +264,7 @@ def study():
             manor_first()
         else:
             print("Invalid Choice")
-            move = input("do you inspect the [painting] or inspect the [book] or head [back]? ")
+            move = input("do you inspect the [painting], inspect the [book] or head [back]? ")
      
 def manor_first():
     print("---------------------------------------------------------")
@@ -283,7 +283,7 @@ def manor_first():
             signpost()
         else:
             print("Invalid Choice")
-            move = input("do you investigate the [study], the [kitchen] or head up the [stairs] ")
+            move = input("do you investigate the [study], the [kitchen] or head up the [stairs] or head [back] to the signpost? ")
 
 def manor():
     global signpost_visited
@@ -377,13 +377,13 @@ def kitchen():
     print("---------------------------------------------------------")
     print("you enter the kitchen")
     print("---------------------------------------------------------")
-    move = input("you can't see any point to being in the kitchen and think you should head [back]")
+    move = input("you can't see any point to being in the kitchen and think you should head [back] ")
     while True:
         if move == 'back': 
             mess_hall()
         else: 
             print("Invalid Choice")
-            move = input("you can't see any point to being in the kitchen and think you should head [back]")
+            move = input("you can't see any point to being in the kitchen and think you should head [back] ")
         
 
 def mess_hall():
@@ -398,23 +398,23 @@ def mess_hall():
         print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
         print("Amongst all the empty dishes you see a bowl of soup it seems someone has left out")
         print("---------------------------------------------------------")
-        move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
+        move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost? ")
     elif kitchen_return == False and soup_eaten > 0:
         print("---------------------------------------------------------")
         print("You follow the path until you reach a large wooden building")
         print("Entering the building you find a row of dining tables, at the back you see a door leading to a kitchen")
         print("---------------------------------------------------------")
-        move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
+        move = input("explore the [kitchen] at the back, or head [back] to the signpost? ")
     elif kitchen_return == True and soup_eaten == 0:
         print("---------------------------------------------------------")
         print("you head back to the dining area")
         print("---------------------------------------------------------")
-        move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
+        move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost? ")
     else:
         print("---------------------------------------------------------")
         print("you head back to the dining area")
         print("---------------------------------------------------------")
-        move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
+        move = input("explore the [kitchen] at the back, or head [back] to the signpost? ")
     while True:
         if move == 'eat':
             if soup_eaten == 0:
@@ -426,14 +426,14 @@ def mess_hall():
                 print("---------------------------------------------------------")
                 print("YOU ALREADY ATE THE SOUP, nice try though")
                 print("---------------------------------------------------------")
-            move = input("explore the [kitchen] at the back, or head [back] to the signpost ")
+            move = input("explore the [kitchen] at the back, or head [back] to the signpost? ")
         elif move == 'kitchen':
             kitchen()
         elif move == 'back':
             signpost()
         else: 
             print("Invalid Choice")
-            move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost ")
+            move = input("Do you [eat] the bowl of soup? explore the [kitchen] at the back, or head [back] to the signpost? ")
 
 def signpost():
     global kitchen_return 
@@ -564,7 +564,7 @@ def starting_room():
     print("your car is in need of repairs if you are to make it in time for the wedding")
     print("It's quiet, but you think you can hear music coming from somewhere")
     print("---------------------------------------------------------")
-    choice = input("Do you.. [wait]? walk up the [road] on foot? or explore the [woods]? ")
+    choice = input("Do you [wait]? walk up the [road] on foot? or explore the [woods]? ")
     while True:
         if choice == "wait":
             car_wait()
@@ -574,7 +574,7 @@ def starting_room():
             wood_death()
         else:
             print("Invalid choice.")
-            choice = input("Do you.. [wait]? walk up the [road] on foot? or explore the [woods]? ")
+            choice = input("Do you [wait]? walk up the [road] on foot? or explore the [woods]? ")
 
 def game_start():
     print("---------------------------------------------------------")
