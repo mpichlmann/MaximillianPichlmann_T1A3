@@ -5,7 +5,7 @@ def typewriter_text(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.01)
+        time.sleep(0.025)
     print('')  # add newline after typewriter effect
 
 # Example usage:

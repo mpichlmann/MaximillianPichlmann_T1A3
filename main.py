@@ -1,8 +1,14 @@
 import sys
 import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
+from pygame import mixer
+mixer.init()
+
 
 def game_over():
+    mixer.music.load('death.mp3')
+    mixer.music.play(loops=-1)
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print("-------------------" + fg('red') + "YOU DIED: GAME OVER" + attr('reset') + "-------------------")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
@@ -22,6 +28,8 @@ def play_again():
 
 
 def game_complete():
+    mixer.music.load('win.mp3')
+    mixer.music.play(loops=-1)
     print("-------------------------------------------------------------")
     print("You rescue the mechanic preventing her from becoming a demon!")
     print("The two of you walk back to your car, where she helps fix it.")
@@ -535,15 +543,18 @@ def car_wait():
                 "You're nowhere near as determined as you initially thought, you can't do this any longer you tell yourself"]
     print("---------------------------------------------------------")
     print("you wait in the car, nothing happens")
+    print("---------------------------------------------------------")
     move = input("Do you want to " + fg('yellow') + "[wait]" + attr('reset') + " some more, explore the " + fg('yellow') + "[woods]" + attr('reset') + " or walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? ")
     while move == 'wait':
         if wait_time < len(wait_messages):
             print("---------------------------------------------------------")
             print(wait_messages[wait_time])
+            print("---------------------------------------------------------")
             wait_time += 1
         else:
             print("---------------------------------------------------------")
             print("you die from the exhaustion of waiting for a miracle, what a pitiful way to go")
+            print("---------------------------------------------------------")
             game_over()
         move = input("Do you want to " + fg('yellow') + "[wait]" + attr('reset') + " some more, explore the " + fg('yellow') + "[woods]" + attr('reset') + " or walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? ")
     if move == 'woods':
@@ -570,6 +581,9 @@ def starting_room():
     inventory = []
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
+    #Music
+    mixer.music.load('game.mp3')
+    mixer.music.play(loops=-1)
     #Opening Text
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
@@ -592,6 +606,8 @@ def starting_room():
             choice = input("Do you " + fg('yellow') + "[wait]" + attr('reset') + "? walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? or explore the " + fg('yellow') + "[woods]" + attr('reset') + "? ")
 
 def game_start():
+    mixer.music.load('menu.mp3')
+    mixer.music.play(loops=-1)
     print("---------------------------------------------------------")
     print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
     print("Your goal is to reach the end without dying and save the day!")
