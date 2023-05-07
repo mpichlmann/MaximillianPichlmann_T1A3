@@ -49,7 +49,7 @@ def box():
     move = input("do you press one of symbols [pig][bird][bear][baby][wheat][apple][sword][sheep][snake] \nor head [back]" )
     while True:
         if move == 'back':
-            manor_first()
+            print("yo")
         elif move in ["pig", "bird", "bear", "baby", "wheat", "apple", "sword", "sheep", "snake"]:
             current_sequence.append(move)
             if current_sequence == correct_sequence:
