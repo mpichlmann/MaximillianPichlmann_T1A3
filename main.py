@@ -473,7 +473,9 @@ def gate():
     move = input("do you [pet] the dog or continue up the [path]? ")
     while True:
         if move == 'pet':
+            print("---------------------------------------------------------")
             print("As you touch the dog, it wakes up and attacks you!")
+            print("---------------------------------------------------------")
             game_over()
         elif move == 'path':
             signpost()
