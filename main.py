@@ -6,6 +6,7 @@ from colored import fg, attr
 from pygame import mixer
 mixer.init()
 
+
 #Death Screen
 def game_over():
     try:
@@ -205,10 +206,10 @@ def manor_kitchen():
 
 def painting():
     print("---------------------------------------------------------")
-    print("The painting seems to contain a muscular figure front and center")
-    print("The figures skin is pale, but covered in patches thick dark hair")
-    print("The face is scratched out, making it indistinguishable")
-    print("The figure stands in front of flames and dark clouds")
+    print("The painting seems to contain a muscular figure front and center.")
+    print("The figure's skin is pale, but covered in patches of thick dark hair,")
+    print("the face is scratched out, making it indistinguishable.")
+    print("The figure stands in front of flames and dark clouds.")
     print("You don't like the painting very much...")
     print("---------------------------------------------------------")
     move = input("do you inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
@@ -239,7 +240,7 @@ def book():
                     note_contents = file.read()
                     print(note_contents)
                     print("---------------------------------------------------------")
-                move = input('do you inspect the [painting], or head [back] ')
+                move = input("do you inspect the " + fg('yellow') + "[painting]"+ attr('reset') + ", or head " + fg('yellow') +"[back]" + attr('reset') +" ")
             else: 
                 print("Invalid Choice")
                 move = input("do you inspect the " + fg('yellow') + "[painting]" + attr('reset') + ", read the " + fg('yellow') + "[note]" + attr('reset') + " you found, or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
@@ -264,7 +265,7 @@ def book():
                     note_contents = file.read()
                     print(note_contents)
                     print("---------------------------------------------------------")
-                move = input('do you inspect the [painting], or head [back] ')
+                move = input("do you inspect the " + fg('yellow') + "[painting]"+ attr('reset') + ", or head " + fg('yellow') +"[back]" + attr('reset') +" ")
             else: 
                 print("Invalid Choice")
                 move = input("do you inspect the " + fg('yellow') + "[painting]" + attr('reset') + ", read the " + fg('yellow') + "[note]" + attr('reset') + " you found, or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
@@ -627,11 +628,12 @@ def game_start():
     print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
     print("Your goal is to reach the end without dying and save the day!")
     print("Throughout the game you will be presented with choices in " + fg('yellow') + "[square]" + attr('reset') + " brackets")
-    print("simply type the option in square brackets to proceed, but be careful!")
+    print("simply type your choice in lower-case to proceed, but be careful!")
     print("---------------------------------------------------------")
     ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
-    while True:
         
+    while True:
+
         if ready == "play":
             starting_room()
         elif ready == "quit":
