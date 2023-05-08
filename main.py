@@ -1,3 +1,4 @@
+#Imports
 import sys
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
@@ -5,7 +6,7 @@ from colored import fg, attr
 from pygame import mixer
 mixer.init()
 
-
+#Death Screen
 def game_over():
     try:
         mixer.music.load('death.mp3')
@@ -16,7 +17,7 @@ def game_over():
     print("-------------------" + fg('red') + "YOU DIED: GAME OVER" + attr('reset') + "-------------------")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     play_again()
-    
+#Play Again Prompt    
 def play_again():
     move = input("Would you like to " + fg('yellow') + "[play]" + attr('reset') + " again? or do you want to " + fg('yellow') + "[quit]" + attr('reset') + " playing? ")
     while True:
@@ -29,7 +30,7 @@ def play_again():
             print("Invalid Choice")
             move = input("Would you like to " + fg('yellow') + "[play]" + attr('reset') + " again? or do you want to " + fg('yellow') + "[quit]" + attr('reset') + " playing? ")
 
-
+#Game Win Screen
 def game_complete():
     try:
         mixer.music.load('win.mp3')
@@ -48,7 +49,7 @@ def game_complete():
     print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
     play_again()
 
-
+#Inside The Church
 def inside_church():
     print("---------------------------------------------------------")
     print("you enter the church, it's cold and the smell of sulfur is noticeable")
@@ -69,6 +70,7 @@ def inside_church():
             print("Invalid Choice")
             move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
+#Inside The Box
 def inside_box():
     print("---------------------------------------------------------")
     print("The box opens to reveal its contents")
@@ -86,6 +88,7 @@ def inside_box():
             print("Invalid Choice")
             move = input("do you inspect the " + fg('yellow') + "[photo]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
 
+#Box Puzzle
 def box():
     global box_open
     print("---------------------------------------------------------")
@@ -111,7 +114,7 @@ def box():
                     box_open = True
                     inside_box()
                     break  # Exit the loop if the box is open
-                # If the user entered the correct button, display satisfying click
+                
                 elif move == correct_sequence[len(current_sequence)-1] or move == correct_sequence[0]:
                     print("---------------------------------------------------------")
                     print("You hear a satisfying click")
