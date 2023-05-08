@@ -3,8 +3,11 @@ import sys
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
-from pygame import mixer
-mixer.init()
+try:
+    from pygame import mixer
+    mixer.init()
+except:
+    print("Error Loading Music")
 
 
 #Death Screen
