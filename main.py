@@ -7,8 +7,11 @@ mixer.init()
 
 
 def game_over():
-    mixer.music.load('death.mp3')
-    mixer.music.play(loops=-1)
+    try:
+        mixer.music.load('death.mp3')
+        mixer.music.play(loops=-1)
+    except:
+        print("Error Loading Music")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print("-------------------" + fg('red') + "YOU DIED: GAME OVER" + attr('reset') + "-------------------")
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
@@ -28,8 +31,11 @@ def play_again():
 
 
 def game_complete():
-    mixer.music.load('win.mp3')
-    mixer.music.play(loops=-1)
+    try:
+        mixer.music.load('win.mp3')
+        mixer.music.play(loops=-1)
+    except:
+        print("Error Loading Music")
     print("-------------------------------------------------------------")
     print("You rescue the mechanic preventing her from becoming a demon!")
     print("The two of you walk back to your car, where she helps fix it.")
@@ -582,8 +588,11 @@ def starting_room():
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
     #Music
-    mixer.music.load('game.mp3')
-    mixer.music.play(loops=-1)
+    try:
+        mixer.music.load('game.mp3')
+        mixer.music.play(loops=-1)
+    except:
+        print("Error Loading Music")
     #Opening Text
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
@@ -606,8 +615,11 @@ def starting_room():
             choice = input("Do you " + fg('yellow') + "[wait]" + attr('reset') + "? walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? or explore the " + fg('yellow') + "[woods]" + attr('reset') + "? ")
 
 def game_start():
-    mixer.music.load('menu.mp3')
-    mixer.music.play(loops=-1)
+    try:
+        mixer.music.load('menu.mp3')
+        mixer.music.play(loops=-1)
+    except:
+        print("Error Loading Music")
     print("---------------------------------------------------------")
     print("Welcome to 'Spooky Woods' an exploration horror puzzle game!")
     print("Your goal is to reach the end without dying and save the day!")
@@ -616,6 +628,7 @@ def game_start():
     print("---------------------------------------------------------")
     ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
     while True:
+        
         if ready == "play":
             starting_room()
         elif ready == "quit":
@@ -623,5 +636,6 @@ def game_start():
         else:
             print("Invalid Choice")
             ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
+        
 
 game_start()
