@@ -54,6 +54,11 @@ def game_complete():
     play_again()
 
 def incantation_ending():
+    try:
+        mixer.music.load('demon.mp3')
+        mixer.music.play(loops=-1)
+    except:
+        print("Error Loading Music")
     print("-------------------------------------------------------------")
     print("You recite the incantation that you found in the dorms")
     print("The walls shake, and fire bursts from the ground")
