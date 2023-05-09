@@ -53,7 +53,20 @@ def game_complete():
     print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
     play_again()
 
+def incantation_ending():
+    print("-------------------------------------------------------------")
+    print("You recite the incantation that you found in the dorms")
+    print("The walls shake, and fire bursts from the ground")
+    print("You feel a great hunger within you, and rage fills your mind")
+    print("You transform into THE DARK ONE, ready to unleash EVIL ")
+    print("-------------------------------------------------------------")
+    print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ ")
+    print("------------------" + fg('red') + "YOU WIN: GAME COMPLETE" + attr('reset') + "--------------------")
+    print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
+    play_again()
+
 #Inside The Church
+global incantation
 def inside_church():
     print("---------------------------------------------------------")
     print("you enter the church, it's cold and the smell of sulfur is noticeable")
@@ -64,15 +77,20 @@ def inside_church():
     print("'I just want to get out of here and go back to my job fixing cars as a mechanic!!'")
     print("you think to yourself, 'wow this has worked out perfectly'")
     print("---------------------------------------------------------")
-    move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
+    
     while True:
+        if incantation == True:
+            move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, recite the evil " + fg('red') + "[incantation]" + attr('reset') + ", or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
+        else: 
+            move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         if move == 'rescue':
             game_complete()
+        elif move == 'incantation' and incantation == True:
+            incantation_ending()
         elif move == 'back':
             signpost()
         else:
             print("Invalid Choice")
-            move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
 #Inside The Box
 def inside_box():
@@ -466,11 +484,179 @@ def mess_hall():
             move = input("Do you " + fg('yellow') + "[eat]" + attr('reset') + " the bowl of soup? explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
 
+def dorm1():
+    global dorms_visited
+    dorms_visited = True
+    global journal_read
+    print("---------------------------------------------------------")
+    print("You enter the first dorm, and see two bunk beds on either side of the room")
+    print("A dresser desk sits up against the wall in between the bunk")
+    print("On one of the beds you spot a journal")
+    print("---------------------------------------------------------")
+    while True:
+        move = input("do you inspect the [dresser], read the [journal], or [head] back? ")
+        if move == 'back':
+            dorms()
+        elif move == 'dresser':
+            if journal_read == True and 'iron_key' not in inventory:
+                print("---------------------------------------------------------")
+                print("Inside the dresser you see robes and dirty work clothes")
+                print("You find a small iron key taped to the top of the dresser")
+                inventory.append('iron_key')
+                print("---------------------------------------------------------")
+            else:
+                print("---------------------------------------------------------")
+                print("Inside the dresser you see robes and dirty work clothes")
+                print("---------------------------------------------------------")
+        elif move == 'journal':
+            print("---------------------------------------------------------")
+            print("The Journal seems to have several entries, dating back what seems like a few months")
+            print("The most recent entry reads:")
+            print("")
+            print("Soon the big night will be upon us... what all of our devotion has been leading to...")
+            print("I hope everything goes well, but I have to confess I'm a little concerned about one of my fellow followers")
+            print("He started out joyful in the work we were doing, but gradually he seems to have changed")
+            print("like his focus is elsewhere...")
+            print("---------------------------------------------------------")
+        else:
+            print("Invalid Choice")
+
+def dorm2():
+    global dorms_visited
+    dorms_visited = True
+    global journal_read
+    print("---------------------------------------------------------")
+    print("You enter the second dorm, and see a bunk bed on the right, and two writing desks on the left")
+    print("A dresser desk sits up against the wall in between the bunk bed and the writing desks")
+    print("On top of one of the desks looks to be a journal of some sort")
+    print("---------------------------------------------------------")
+    while True:
+        move = input("do you search the [dresser], read the [journal] or [head] back? ")
+        if move == 'back':
+            dorms()
+        elif move == 'dresser':
+            print("---------------------------------------------------------")
+            print("Rummaging through the dresser you only find robes, some dirty work clothes and a photo")
+            print("The photo is of a group of young men and women, they're all smiling, all except one")
+            print("---------------------------------------------------------")
+        elif move == 'journal':
+            journal_read = True
+            print("---------------------------------------------------------")
+            print("The Journal seems to have several entries, dating back what seems like a few months")
+            print("The most recent entry, dated today, reads:")
+            print("")
+            print("This is it, all of our hard work has led to this moment. With the completion")
+            print("of the ritual, the dark one will be summoned and this world will be done with!")
+            print("Finally, I can make this confession without fear of our leader's punishment.")
+            print("I do not wish to summon the dark one...I wish to BECOME the dark one!")
+            print("My research of the dark scriptues has led me to an evil incantation.")
+            print("One needs only to consume our unholy soup and utter the phrase in a holy place") 
+            print("and a transformation will occur in the one who speaks it!")
+            print("")
+            print("I've had to be so careful so as to not get caught...")
+            print("I wrote the phrase down so I don't forget it, hid it in my lockbox, stashed it under the bed in the dorm next-door")
+            print("and I even hid the key to the lockbox in the OTHER dorm, taped to the top of the inside of the dresser")
+            print("but now none of it matters... they're calling us to the chapel now, this is my last entry")
+            print("---------------------------------------------------------")
+        else:
+            print("Invalid Choice")
+
+def dorm3():
+    global dorms_visited
+    dorms_visited = True
+    global journal_read
+    global incantation
+    print("---------------------------------------------------------")
+    print("You enter the third dorm, and see a bunk bed on the right, and a single writing desk on the left")
+    print("A dresser desk sits up against the wall with some photos on top of it")
+    print("Next to the photos, a journal can be found")
+    print("---------------------------------------------------------")
+    while True:
+        if journal_read == True:
+            move = input("do you check under the [bed], search the [dresser], read the [journal], inspect the [photo] or [head] back? ")
+        else: 
+            move = input("do you search the [dresser], read the [journal] or [head] back? ")
+        if move == 'back':
+            dorms()
+        elif move == 'journal':
+            print("---------------------------------------------------------")
+            print("The Journal seems to have several entries, dating back what seems like a few months")
+            print("The most recent entry reads:")
+            print("")
+            print("Man... I never should have joined this stupid 'spiritual movement'")
+            print("I should have listened to my mum and continued my IT Diploma")
+            print("All these guy talk about is summoning the dark lord")
+            print("and bringing about the end of days...Like... I just wanted")
+            print("to stop staring at screens and get some exercise...I think")
+            print("I may have let this whole thing get a bit out of hand...")
+            print("---------------------------------------------------------")
+        elif move == 'dresser':
+            print("---------------------------------------------------------")
+            print("Inside the dresser you see robes and dirty work clothes")
+            print("stashed amongst all the clothes you find a few sci-fi novels")
+            print("---------------------------------------------------------")
+        elif move == 'bed' and journal_read == True:
+            if 'iron_key' in inventory:
+                incantation = True 
+                print("---------------------------------------------------------")
+                print("You search under the bed and find a lockbox")
+                print("Using the key you found, you open the box to reveal a piece of parchment")
+                print("It reads:")
+                print("")
+                print("Corpus meum offero")
+                print("---------------------------------------------------------")
+            else:
+                print("---------------------------------------------------------")
+                print("You search under the bed and find a lockbox, but you can't open it")
+                print("---------------------------------------------------------")
+        else:
+            print("Invalid Choice")
+
+
+def dorms():
+    global signpost_visited
+    signpost_visited = True
+    global church_quiet
+    church_quiet = True
+    global dorms_visited
+    if dorms_visited == True:
+        print("---------------------------------------------------------")
+        print("You stand in front of the row of dorms")
+        print("Looking at each of their numbers, you wander what dark secrets,")
+        print("the inhabitants may be keeping")
+        print("---------------------------------------------------------")
+    else:
+        print("---------------------------------------------------------")
+        print("You arrive at what looks like a row of numbered dorms")
+        print("Each dorm has two steps leading up to it's front door")
+        print("The wooden dorms seem worn and run down, they've definitely seen better days")
+        print("---------------------------------------------------------")
+    move = input("do you enter dorm [1] [2] [3] or head [back] to the signpost? ")
+    
+    while True:
+        if move == '1':
+            dorm1()
+        elif move == '2':
+            dorm2()
+        elif move == '3':
+            dorm3()
+        elif move == 'back':
+            signpost()
+        else:
+            print("Invalid Choice")
+
+
+
+
+
+
+
 def signpost():
     global kitchen_return 
     kitchen_return = False
-    
     global church_quiet
+    global dorms_visited
+    dorms_visited = False
     
         
     if signpost_visited == False:
@@ -487,7 +673,7 @@ def signpost():
         print("you return to the signpost")
         print("you notice you can no longer hear the music or the singing that you did previously")
         print("---------------------------------------------------------")
-    move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + " ")
+    move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + ", " + fg('yellow') + "[dorms]" + attr('reset') + " ")
     while True:
         if move == 'mess hall':
             mess_hall()
@@ -495,9 +681,11 @@ def signpost():
             church()
         elif move == 'manor':
             manor()
+        elif move == 'dorms':
+            dorms()
         else: 
             print("Invalid Choice")
-            move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + " ")
+            move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + ", " + fg('yellow') + "[dorms]" + attr('reset') + " ")
 
 def gate():
     print("---------------------------------------------------------")
@@ -592,6 +780,11 @@ def starting_room():
     box_open = False
     global inventory
     inventory = []
+    global journal_read
+    journal_read = False
+    global incantation
+    incantation = False
+
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
     #Music
