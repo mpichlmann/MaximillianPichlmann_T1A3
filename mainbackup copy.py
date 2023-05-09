@@ -23,8 +23,8 @@ def game_over():
 
 #Play Again Prompt    
 def play_again():
+    move = input("Would you like to " + fg('yellow') + "[play]" + attr('reset') + " again? or do you want to " + fg('yellow') + "[quit]" + attr('reset') + " playing? ")
     while True:
-        move = input("Would you like to " + fg('yellow') + "[play]" + attr('reset') + " again? or do you want to " + fg('yellow') + "[quit]" + attr('reset') + " playing? ")
         if move == "play":
             starting_room()
         elif move == "quit":
@@ -32,7 +32,7 @@ def play_again():
             sys.exit()
         else: 
             print("Invalid Choice")
-            
+            move = input("Would you like to " + fg('yellow') + "[play]" + attr('reset') + " again? or do you want to " + fg('yellow') + "[quit]" + attr('reset') + " playing? ")
 
 #Game Win Screen
 def game_complete():
@@ -67,7 +67,6 @@ def incantation_ending():
 
 #Inside The Church
 global incantation
-global soup_eaten
 def inside_church():
     print("---------------------------------------------------------")
     print("you enter the church, it's cold and the smell of sulfur is noticeable")
@@ -79,13 +78,13 @@ def inside_church():
     print("you think to yourself, 'wow this has worked out perfectly'")
     print("---------------------------------------------------------") 
     while True:
-        if incantation == True and soup_eaten > 0:
+        if incantation == True:
             move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, recite the evil " + fg('red') + "[incantation]" + attr('reset') + ", or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         else: 
             move = input("do you " + fg('green') + "[rescue]" + attr('reset') + " the mechanic, or for some unimaginable reason head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         if move == 'rescue':
             game_complete()
-        elif move == 'incantation' and incantation == True and soup_eaten > 0:
+        elif move == 'incantation' and incantation == True:
             incantation_ending()
         elif move == 'back':
             signpost()
@@ -100,15 +99,15 @@ def inside_box():
     print("You take the key")
     print("---------------------------------------------------------")
     inventory.append("key")
+    move = input("do you inspect the " + fg('yellow') + "[photo]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
     while True: 
-        move = input("do you inspect the " + fg('yellow') + "[photo]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
         if move == 'back':
             manor_first()
         elif move == 'photo':
             photo()
         else:
             print("Invalid Choice")
-            
+            move = input("do you inspect the " + fg('yellow') + "[photo]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
 
 #Box Puzzle
 def box():
@@ -167,8 +166,8 @@ def photo():
     print("the photo is a picture of a young boy standing next to an older gaunt looking man")
     print("The pair is standing in front of a church, the boy looks sad")
     print("---------------------------------------------------------")
+    move = input("do you look at the " + fg('yellow') + "[photo]" + attr('reset') + " again, inspect the " + fg('yellow') + "[box]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
     while True: 
-        move = input("do you look at the " + fg('yellow') + "[photo]" + attr('reset') + " again, inspect the " + fg('yellow') + "[box]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
         if move == 'photo':
             photo()
         elif move == 'box' and box_open == False:
@@ -182,7 +181,7 @@ def photo():
             manor_first()
         else:
             print("Invalid Choice")
-            
+            move = input("do you look at the " + fg('yellow') + "[photo]" + attr('reset') + " again, inspect the " + fg('yellow') + "[box]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
 
 def manor_second():
     global box_open
@@ -192,8 +191,8 @@ def manor_second():
     print("opposite the bed is a writing desk up against the wall")
     print("on the writing desk is what looks like a decorative box with several symbols on it")
     print("---------------------------------------------------------")
+    move = input("do you inspect the " + fg('yellow') + "[box]" + attr('reset') + ", look at the " + fg('yellow') + "[photo]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
     while True:
-        move = input("do you inspect the " + fg('yellow') + "[box]" + attr('reset') + ", look at the " + fg('yellow') + "[photo]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
         if move == 'photo':
             photo()
         elif move == 'box' and box_open == False:
@@ -207,7 +206,7 @@ def manor_second():
             manor_first()
         else:
             print("Invalid Choice")
-        
+            move = input("do you inspect the " + fg('yellow') + "[box]" + attr('reset') + ", look at the " + fg('yellow') + "[photo]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
 
 def manor_kitchen():
     print("---------------------------------------------------------")
@@ -215,13 +214,13 @@ def manor_kitchen():
     print("The shelves are all empty, except for one loan plate and a single glass")
     print("You think to yourself that whoever lives here must enjoy their solitude")
     print("---------------------------------------------------------")
+    move = input("You might as well head " + fg('yellow') + "[back]" + attr('reset') + " ")
     while True:
-        move = input("You might as well head " + fg('yellow') + "[back]" + attr('reset') + " ")
         if move == 'back':
             manor_first()
         else: 
             print("Invalid Choice")
-            
+            move = input("You might as well head " + fg('yellow') + "[back]" + attr('reset') + " ")
 
 def painting():
     print("---------------------------------------------------------")
@@ -231,15 +230,15 @@ def painting():
     print("The figure stands in front of flames and dark clouds.")
     print("You don't like the painting very much...")
     print("---------------------------------------------------------")
+    move = input("do you inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
     while True:
-        move = input("do you inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
         if move == 'book':
             book()
         elif move == 'back':
             manor_first()
         else:
             print("Invalid Choice")
-            
+            move = input("do you inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
 
 def book():
     global note_picked
@@ -296,8 +295,8 @@ def study():
     print("You enter the study where you see a lone chair faced towards a painting")
     print("next to the chair is a small table, on top sits a leatherbound book")
     print("---------------------------------------------------------")
+    move = input("do you inspect the " + fg('yellow') + "[painting]" + attr('reset') + ", inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
     while True:
-        move = input("do you inspect the " + fg('yellow') + "[painting]" + attr('reset') + ", inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
         if move == 'painting': 
             painting()
         elif move == 'book':
@@ -306,15 +305,15 @@ def study():
             manor_first()
         else:
             print("Invalid Choice")
-            
+            move = input("do you inspect the " + fg('yellow') + "[painting]" + attr('reset') + ", inspect the " + fg('yellow') + "[book]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
      
 def manor_first():
     print("---------------------------------------------------------")
     print("You're standing in the vestibule of the house, you see a study to the left, and some stairs to the right")
     print("In front of you is a small kitchen that seems recently tidied")
     print("---------------------------------------------------------")
+    move = input("do you investigate the " + fg('yellow') + "[study]" + attr('reset') + ", the " + fg('yellow') + "[kitchen]" + attr('reset') + ", head up the " + fg('yellow') + "[stairs]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
     while True:
-        move = input("do you investigate the " + fg('yellow') + "[study]" + attr('reset') + ", the " + fg('yellow') + "[kitchen]" + attr('reset') + ", head up the " + fg('yellow') + "[stairs]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         if move == 'study':
             study()
         elif move == 'kitchen':
@@ -325,7 +324,7 @@ def manor_first():
             signpost()
         else:
             print("Invalid Choice")
-            
+            move = input("do you investigate the " + fg('yellow') + "[study]" + attr('reset') + ", the " + fg('yellow') + "[kitchen]" + attr('reset') + ", head up the " + fg('yellow') + "[stairs]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
 def manor():
     global signpost_visited
@@ -338,15 +337,15 @@ def manor():
     print("It's small, definitely not a manor by any means, you wonder why it would be referred to as such")
     print("you notice the door is wide open")
     print("---------------------------------------------------------")
+    move = input("do you " + fg('yellow') + "[enter]" + attr('reset') + " the house or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
     while True:
-        move = input("do you " + fg('yellow') + "[enter]" + attr('reset') + " the house or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         if move == 'enter':
             manor_first()
         elif move == 'back':
             signpost()
         else:
             print("Invalid Choice")
-            
+            move = input("do you " + fg('yellow') + "[enter]" + attr('reset') + " the house or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
 
 def church():
@@ -386,7 +385,8 @@ def church():
                 print("---------------------------------------------------------")
                 print("You try to the door but can't, the door is locked")
                 print("---------------------------------------------------------")
-                move = input("do you " + fg('yellow') + "[knock]" + attr('reset') + " at the door, simply " + fg('yellow') + "[open]" + attr('reset') + " the door and let yourself in, do you " + fg('yellow') + "[look]" + attr('reset') + " in through a window or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")  
+                move = input("do you " + fg('yellow') + "[knock]" + attr('reset') + " at the door, simply " + fg('yellow') + "[open]" + attr('reset') + " the door and let yourself in, do you " + fg('yellow') + "[look]" + attr('reset') + " in through a window or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
+             
         elif move == 'look' and church_quiet == False:
             print("---------------------------------------------------------")
             print("You peer through the window and see a group of hooded figures in black robes standing in a circle")
@@ -416,13 +416,13 @@ def kitchen():
     print("---------------------------------------------------------")
     print("you enter the kitchen")
     print("---------------------------------------------------------")
+    move = input("you can't see any point to being in the kitchen and think you should " + fg('yellow') + "[back]" + attr('reset') + " ")
     while True:
-        move = input("you can't see any point to being in the kitchen and think you should " + fg('yellow') + "[back]" + attr('reset') + " ")
         if move == 'back': 
             mess_hall()
         else: 
             print("Invalid Choice")
-            
+            move = input("you can't see any point to being in the kitchen and think you should " + fg('yellow') + "[back]" + attr('reset') + " ")
 
 def mess_hall():
     global signpost_visited
@@ -461,18 +461,17 @@ def mess_hall():
                 print("You eat the soup, it tastes funny, ")
                 print("---------------------------------------------------------")
             else: 
-                print("Invalid Choice")
-            move = input("do you explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
+                print("---------------------------------------------------------")
+                print("YOU ALREADY ATE THE SOUP, nice try though")
+                print("---------------------------------------------------------")
+            move = input("explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         elif move == 'kitchen':
             kitchen()
         elif move == 'back':
             signpost()
         else: 
             print("Invalid Choice")
-            if soup_eaten > 0:
-                move = input("Do you explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
-            else:
-                move = input("Do you " + fg('yellow') + "[eat]" + attr('reset') + " the bowl of soup? explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
+            move = input("Do you " + fg('yellow') + "[eat]" + attr('reset') + " the bowl of soup? explore the " + fg('yellow') + "[kitchen]" + attr('reset') + " at the back, or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
 
 def dorm1():
     global dorms_visited
@@ -484,7 +483,7 @@ def dorm1():
     print("On one of the beds you spot a journal")
     print("---------------------------------------------------------")
     while True:
-        move = input("do you inspect the " + fg('yellow') + "[dresser]" + attr('reset') + ", read the " + fg('yellow') + "[journal]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
+        move = input("do you inspect the [dresser], read the [journal], or [head] back? ")
         if move == 'back':
             dorms()
         elif move == 'dresser':
@@ -521,7 +520,7 @@ def dorm2():
     print("On top of one of the desks looks to be a journal of some sort")
     print("---------------------------------------------------------")
     while True:
-        move = input("do you search the " + fg('yellow') + "[dresser]" + attr('reset') + ", read the " + fg('yellow') + "[journal]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
+        move = input("do you search the [dresser], read the [journal] or [head] back? ")
         if move == 'back':
             dorms()
         elif move == 'dresser':
@@ -563,9 +562,9 @@ def dorm3():
     print("---------------------------------------------------------")
     while True:
         if journal_read == True:
-            move = input("do you check under the " + fg('yellow') + "[bed]" + attr('reset') + ", search the " + fg('yellow') + "[dresser]" + attr('reset') + ", read the " + fg('yellow') + "[journal]" + attr('reset') + ", or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
+            move = input("do you check under the [bed], search the [dresser], read the [journal], inspect the [photo] or [head] back? ")
         else: 
-            move = input("do you search the " + fg('yellow') + "[dresser]" + attr('reset') + ", read the " + fg('yellow') + "[journal]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + "? ")
+            move = input("do you search the [dresser], read the [journal] or [head] back? ")
         if move == 'back':
             dorms()
         elif move == 'journal':
@@ -620,8 +619,8 @@ def dorms():
         print("Each dorm has two steps leading up to it's front door")
         print("The wooden dorms seem worn and run down, they've definitely seen better days")
         print("---------------------------------------------------------")
+    move = input("do you enter dorm [1] [2] [3] or head [back] to the signpost? ")
     while True:
-        move = input("do you enter dorm " + fg('yellow') + "[1]" + attr('reset') + " " + fg('yellow') + "[2]" + attr('reset') + " " + fg('yellow') + "[3]" + attr('reset') + " or head " + fg('yellow') + "[back]" + attr('reset') + " to the signpost? ")
         if move == '1':
             dorm1()
         elif move == '2':
@@ -653,8 +652,8 @@ def signpost():
         print("you return to the signpost")
         print("you notice you can no longer hear the music or the singing that you did previously")
         print("---------------------------------------------------------")
+    move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + ", " + fg('yellow') + "[dorms]" + attr('reset') + " ")
     while True:
-        move = input("The signpost reads: " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + ", " + fg('yellow') + "[dorms]" + attr('reset') + ", " + fg('yellow') + "[mess hall]" + attr('reset') + " ")
         if move == 'mess hall':
             mess_hall()
         elif move == 'church':
@@ -665,14 +664,15 @@ def signpost():
             dorms()
         else: 
             print("Invalid Choice")
-           
+            move = input("The signpost reads: " + fg('yellow') + "[mess hall]" + attr('reset') + ", " + fg('yellow') + "[church]" + attr('reset') + ", " + fg('yellow') + "[manor]" + attr('reset') + ", " + fg('yellow') + "[dorms]" + attr('reset') + " ")
+
 def gate():
     print("---------------------------------------------------------")
     print("you stack the boxes and climb the gate")
     print("now that you're on the other side of the gate you see a sleeping dog and a path leading up to the source of the music")
     print("---------------------------------------------------------")
+    move = input("do you " + fg('yellow') + "[pet]" + attr('reset') + " the dog or continue up the " + fg('yellow') + "[path]" + attr('reset') + "? ")
     while True:
-        move = input("do you " + fg('yellow') + "[pet]" + attr('reset') + " the dog or continue up the " + fg('yellow') + "[path]" + attr('reset') + "? ")
         if move == 'pet':
             print("---------------------------------------------------------")
             print("As you touch the dog, it wakes up and attacks you!")
@@ -682,7 +682,7 @@ def gate():
             signpost()
         else: 
             print("Invalid Choice")
-            
+            move = input("do you " + fg('yellow') + "[pet]" + attr('reset') + " the dog or continue up the " + fg('yellow') + "[path]" + attr('reset') + "? ")
         
 def road():
     print("---------------------------------------------------------")
@@ -692,8 +692,8 @@ def road():
     print("the music is coming from the other side of the gate, perhaps someone there knows how to fix a car?")
     print("you see a rusty lock on the gate, and some boxes next to the gate")
     print("---------------------------------------------------------")
+    move = input("do you want to " + fg('yellow') + "[smash]" + attr('reset') + " the lock with a rock? or " + fg('yellow') + "[climb]" + attr('reset') + " the fence with the boxes? ")
     while True:
-        move = input("do you want to " + fg('yellow') + "[smash]" + attr('reset') + " the lock with a rock? or " + fg('yellow') + "[climb]" + attr('reset') + " the fence with the boxes? ")
         if move == "smash":
             print("You strike the lock, and suddenly a vicious dog jumps through the cutout and attacks you")
             game_over()
@@ -701,7 +701,7 @@ def road():
             gate()
         else:
             print("Invalid Choice")
-            
+            move = input("do you want to " + fg('yellow') + "[smash]" + attr('reset') + " the lock with a rock? or " + fg('yellow') + "[climb]" + attr('reset') + " the fence with the boxes? ")
 
 def wood_death():
     print("---------------------------------------------------------")
@@ -710,7 +710,6 @@ def wood_death():
     print("as you draw closer, you hear a click beneath your feet")
     print("you look down and see your foot caught on a wire")
     print("you've triggered a makeshift trap, nails fly at you from all directions, killing you")
-    print("---------------------------------------------------------")
     game_over()
 
 def car_wait():
@@ -781,9 +780,8 @@ def starting_room():
     print("your car is in need of repairs if you are to make it in time for the wedding")
     print("It's quiet, but you think you can hear music coming from somewhere")
     print("---------------------------------------------------------")
-    
+    choice = input("Do you " + fg('yellow') + "[wait]" + attr('reset') + "? walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? or explore the " + fg('yellow') + "[woods]" + attr('reset') + "? ")
     while True:
-        choice = input("Do you " + fg('yellow') + "[wait]" + attr('reset') + "? walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? or explore the " + fg('yellow') + "[woods]" + attr('reset') + "? ")
         if choice == "wait":
             car_wait()
         elif choice == "road":
@@ -792,7 +790,7 @@ def starting_room():
             wood_death()
         else:
             print("Invalid choice.")
-            
+            choice = input("Do you " + fg('yellow') + "[wait]" + attr('reset') + "? walk up the " + fg('yellow') + "[road]" + attr('reset') + " on foot? or explore the " + fg('yellow') + "[woods]" + attr('reset') + "? ")
 
 def game_start():
     try:
@@ -805,15 +803,15 @@ def game_start():
     print("Your goal is to reach the end without dying and save the day!")
     print("Throughout the game you will be presented with choices in " + fg('yellow') + "[square]" + attr('reset') + " brackets")
     print("simply type your choice in lower-case to proceed, but be careful!")
-    print("---------------------------------------------------------") 
+    print("---------------------------------------------------------")
+    ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ") 
     while True:
-        ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
         if ready == "play":
             starting_room()
         elif ready == "quit":
             sys.exit()
         else:
             print("Invalid Choice")
-            
+            ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset') + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
         
 game_start()
