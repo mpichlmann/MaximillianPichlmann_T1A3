@@ -1,16 +1,22 @@
-#Imports
+# Imports
 import sys
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
+
+# Error Testing Music - if the music does not work,
+# the game will still run, but will display an error message.
+# If the music DOES work, then no error message will be displayed,
+# and the game will run as intended, with music.
 try:
     from pygame import mixer
     mixer.init()
 except:
     print("Error Loading Music")
 
-#Death Screen
+# Death screen
 def game_over():
+    # Music
     try:
         mixer.music.load('death.mp3')
         mixer.music.play(loops=-1)
@@ -22,7 +28,7 @@ def game_over():
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     play_again()
 
-#Play Again Prompt    
+# Play again prompt    
 def play_again():
     while True:
         move = input("Would you like to " + fg('yellow') + "[play]" + 
@@ -37,8 +43,9 @@ def play_again():
             print("Invalid Choice")
             
 
-#Game Win Screen
+# Game win screen
 def game_complete():
+    # Music
     try:
         mixer.music.load('win.mp3')
         mixer.music.play(loops=-1)
@@ -57,7 +64,9 @@ def game_complete():
     print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
     play_again()
 
+# Incantation ending
 def incantation_ending():
+    # Music
     try:
         mixer.music.load('demon.mp3')
         mixer.music.play(loops=-1)
@@ -75,7 +84,7 @@ def incantation_ending():
     print("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ ")
     play_again()
 
-#Inside The Church
+#Inside the church
 global incantation
 global soup_eaten
 def inside_church():
@@ -116,7 +125,7 @@ def inside_church():
         else:
             print("Invalid Choice")
 
-#Inside The Box
+#Inside the box
 def inside_box():
     print("---------------------------------------------------------")
     print("The box opens to reveal its contents")
@@ -136,7 +145,7 @@ def inside_box():
             print("Invalid Choice")
             
 
-#Box Puzzle
+#Box puzzle
 def box():
     global box_open
     print("---------------------------------------------------------")
@@ -165,8 +174,6 @@ def box():
                     set(current_sequence) == set(correct_sequence):
                     box_open = True
                     inside_box()
-                    break  # Exit the loop if the box is open
-                
                 elif move == correct_sequence[len(current_sequence)-1]\
                       or move == correct_sequence[0]:
                     print("----------------------------------"
@@ -204,6 +211,7 @@ def box():
         else:
             print("Invalid Choice")
 
+#Inspecting the photo
 def photo():
     print("---------------------------------------------------------")
     print("the photo is a picture of a young boy standing "
@@ -232,7 +240,7 @@ def photo():
         else:
             print("Invalid Choice")
             
-
+#Second floor of the manor
 def manor_second():
     global box_open
     print("---------------------------------------------------------")
@@ -265,7 +273,7 @@ def manor_second():
         else:
             print("Invalid Choice")
         
-
+# Manor kitchen
 def manor_kitchen():
     print("---------------------------------------------------------")
     print("You enter the kitchen, it's remarkably tidy")
@@ -282,7 +290,7 @@ def manor_kitchen():
         else: 
             print("Invalid Choice")
             
-
+# Inspecting the painting
 def painting():
     print("---------------------------------------------------------")
     print("The painting seems to contain a muscular figure front and center.")
@@ -303,7 +311,7 @@ def painting():
         else:
             print("Invalid Choice")
             
-
+# Inspecting the book and collecting a note clue
 def book():
     global note_picked
     if note_picked > 0:
@@ -381,6 +389,7 @@ def book():
                              " you found, or head " + fg('yellow') + 
                              "[back]" + attr('reset') + "? ")
 
+# Entering the study
 def study():
     global note_picked
     print("---------------------------------------------------------")
@@ -403,7 +412,7 @@ def study():
         else:
             print("Invalid Choice")
             
-     
+# The first floor of the manor
 def manor_first():
     print("---------------------------------------------------------")
     print("You're standing in the vestibule of the house, you see "
@@ -428,7 +437,7 @@ def manor_first():
         else:
             print("Invalid Choice")
             
-
+# Outside the manor
 def manor():
     global signpost_visited
     signpost_visited = True
@@ -452,8 +461,7 @@ def manor():
         else:
             print("Invalid Choice")
             
-
-
+# Arriving at the church
 def church():
     global signpost_visited
     signpost_visited = True
@@ -567,6 +575,7 @@ def church():
                          " in through a window or head " + fg('yellow') + 
                          "[back]" + attr('reset') + " to the signpost? ")
 
+# The mess hall kitchen
 def kitchen():
     global kitchen_return 
     kitchen_return = True
@@ -582,7 +591,7 @@ def kitchen():
         else: 
             print("Invalid Choice")
             
-
+# Arriving at / returning to the mess hall
 def mess_hall():
     global signpost_visited
     signpost_visited = True
@@ -663,6 +672,7 @@ def mess_hall():
                                "[back]" + attr('reset') + 
                                " to the signpost? ")
 
+# Dorm 1
 def dorm1():
     global dorms_visited
     dorms_visited = True
@@ -715,6 +725,7 @@ def dorm1():
         else:
             print("Invalid Choice")
 
+# Dorm 2
 def dorm2():
     global dorms_visited
     dorms_visited = True
@@ -771,7 +782,7 @@ def dorm2():
             print("---------------------------------------------------------")
         else:
             print("Invalid Choice")
-
+# Dorm 3
 def dorm3():
     global dorms_visited
     dorms_visited = True
@@ -846,6 +857,7 @@ def dorm3():
         else:
             print("Invalid Choice")
 
+# Arriving at the row of dorms
 def dorms():
     global signpost_visited
     signpost_visited = True
@@ -883,6 +895,7 @@ def dorms():
         else:
             print("Invalid Choice")
 
+#Arriving at / returning to the signpost
 def signpost():
     global kitchen_return 
     kitchen_return = False
@@ -924,7 +937,8 @@ def signpost():
             dorms()
         else: 
             print("Invalid Choice")
-           
+
+# Arriving at the gate      
 def gate():
     print("---------------------------------------------------------")
     print("you stack the boxes and climb the gate")
@@ -945,7 +959,7 @@ def gate():
         else: 
             print("Invalid Choice")
             
-        
+# Walking up the road  
 def road():
     print("---------------------------------------------------------")
     print("you walk up the road on foot, the music grows")
@@ -971,7 +985,7 @@ def road():
         else:
             print("Invalid Choice")
             
-
+# Exploring the woods
 def wood_death():
     print("---------------------------------------------------------")
     print("you wander into the woods")
@@ -983,6 +997,7 @@ def wood_death():
     print("---------------------------------------------------------")
     game_over()
 
+# Waiting in the car
 def car_wait():
     wait_time = 0
     wait_messages = ["You wander what exactly it is you're waiting for...", 
@@ -1083,7 +1098,7 @@ def starting_room():
         else:
             print("Invalid choice.")
             
-
+# Start screen of the game
 def game_start():
     try:
         mixer.music.load('menu.mp3')
@@ -1106,6 +1121,6 @@ def game_start():
             sys.exit()
         else:
             print("Invalid Choice")
-            
-        
+
+# Calls the game_start function to run the game         
 game_start()
