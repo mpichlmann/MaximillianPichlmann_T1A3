@@ -3,8 +3,7 @@ import sys
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
-
-# Error Testing Music - if the music does not work,
+# Error testing music - if the music does not work,
 # the game will still run, but will display an error message.
 # If the music DOES work, then no error message will be displayed,
 # and the game will run as intended, with music.
@@ -13,6 +12,8 @@ try:
     mixer.init()
 except:
     print("Error Loading Music")
+# End of imports
+
 
 # Death screen
 def game_over():
@@ -31,6 +32,12 @@ def game_over():
 # Play again prompt    
 def play_again():
     while True:
+        # Error testing input - if the user enters one of the options 
+        # presented the corresponding function will be called. If the user 
+        # fails to enter any of the options, an error message will be 
+        # displayed and the user will be prompted to enter an input again. 
+        # This process will be present for all functions in the game and 
+        # will repeat until the user enters an approved input option. 
         move = input("Would you like to " + fg('yellow') + "[play]" + 
                      attr('reset') + " again? or do you want to " + 
                      fg('yellow') + "[quit]" + attr('reset') + " playing? ")
@@ -1046,7 +1053,8 @@ def car_wait():
         car_wait()
         
 def starting_room():
-    #RESETTING VARIABLES
+    # Resetting variables
+    #
     global signpost_visited
     signpost_visited = False
     global church_quiet
@@ -1065,13 +1073,13 @@ def starting_room():
     incantation = False
     if os.path.isfile("note.txt"):
         os.remove("note.txt")
-    #Music
+    # Music
     try:
         mixer.music.load('game.mp3')
         mixer.music.play(loops=-1)
     except:
         print("Error Loading Music")
-    #Opening Text
+    # Opening Text
     print("---------------------------------------------------------")
     print("It's almost midnight, you are driving on a long empty road")
     print("you are driving to a friends wedding, "
@@ -1113,6 +1121,13 @@ def game_start():
     print("simply type your choice in lower-case to proceed, but be careful!")
     print("---------------------------------------------------------") 
     while True:
+        # Error test for getting user input.
+        # If the user enters one of the options presented the corresponding,
+        # function will be called. If the user fails to enter any of the 
+        # options, an error message will be displayed and the user will be
+        # prompted to enter an input again. This process will repeat for all
+        # functions in the game and will repeat until the user enters an 
+        # approved input option. 
         ready = input("Ready to " + fg('yellow') + "[play]" + attr('reset')
             + "? or " + fg('yellow') + "[quit]" + attr('reset') + " game? ")
         if ready == "play":
