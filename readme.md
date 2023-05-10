@@ -1,9 +1,28 @@
 # README
 
-## References
+## (R3) Attributions
+### Music:
+#### Main Menu / Game Start Screen Music:
+'The Invitation' by Blood Lord
+#### Gameplay Music:
+'Crystal Lake Camp Map' from Friday the 13th (NES)
+#### Rescue Ending Music: 
+'Celebrate [8 Bit Tribute to Kool & The Gang]' by 8 Bit Universe
+#### Incantation Ending Music: 
+'Boss' from Plok! (SNES)
 
-## GitHub 
+## (R4) Source Control Repository (GitHub) 
 https://github.com/mpichlmann/MaximillianPichlmann_T1A3
+
+## (R5) Code Styling
+PEP 8 - Style Guide for Python Code
+
+Van Rossum, G., Warsaw, B. and Coghlan, N. (2001). PEP 8 - Style Guide for Python Code. [online] Python.org. Available at: https://peps.python.org/pep-0008/ [Accessed 10 May 2023].
+
+Throughout the code I have adhered to the guidelines outlined by Guido et al in PEP 8. Lines of code do not exceed 79 characters in length, function and variable names do not contain unnecessary capitals and adequate white space is given where required. 
+
+It is stated in PEP 8: "A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.", and as such I have endeavoured to maintain consistent styling in regard to the use of quotations and naming conventions within this project as best as possible. 
+‌
 
 ## Code Styling
 
