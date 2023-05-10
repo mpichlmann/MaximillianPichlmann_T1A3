@@ -523,7 +523,7 @@ def church():
             else:
                 print("---------------------------------"
                       "------------------------")
-                print("You try to the door but can't, the door is locked")
+                print("You try to open the door but can't, it's locked")
                 print("--------------------------------"
                       "-------------------------")
                 move = input("do you " + fg('yellow') + "[knock]" + 
