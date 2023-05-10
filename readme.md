@@ -48,11 +48,36 @@ https://trello.com/b/c63p91Cr/t1a3 - Link to my Trello implementation plan
 Throughout the development of the game I made use of Trello to track, assign, and prioritise different features and components of the game. Initially when I was still getting familiar with Trello, I only created a few basic cards. My first goal was to design the plot of the game, design the MVP (Minimum Viable Product), and to find suitable python packages that could be implemented into the MVP. I knew that as development and designing begun that certain decisions and directions would become obvious and so I didn't worry about having too much structure too early on. 
 
 ![First Image](https://i.imgur.com/VuJncGX.jpg)
-What my Trello Workspace looked like on Day 1.
+*What my Trello Workspace looked like on Day 1*
 
+As I had decided to develop a text based game my first task was to design the plot of the game. Before I could start building the game I needed to know how it starts, how it ends, and how the player gets from one to the other. I started out with some rough sketches and ideas which gradually transformed into a basic map of the world of the game, and how the player navigated it. 
 
+![rough ideas](https://i.imgur.com/KBRzzYf.jpg)
+![map of game](https://i.imgur.com/f9eIxnH.jpg)
+!['flowchart' of game](https://i.imgur.com/8G9a3hv.jpg)
 
+Once I had finished designing the plot of the game, I had to make a start on designing the game itself, i.e. how it will be coded. I had to plan out how to make use of functions, variables, loops, error testing and imported packages. At this point I was able to add a few more things to the Trello workspace, and plan out the days that each task would be completed. Previously I had created separate lists for each day I would complete a task, but as I got deeper into development I switched to instead keeping it simple and only using the three Trello lists of 'To Do, Doing, and Complete' with each card having a due date assigned to it. This way was easier, cleaner and made more sense. 
 
+![Trello as of 6th of May](https://i.imgur.com/cYWH5Yq.jpg)
+*what trello looked like before*
+![home](https://i.imgur.com/kVSo0r7.jpg)
+*what trello looked like after I adjusted how I used it*
+![MVP Checklist](https://i.imgur.com/0rjX7C7.jpg)
+
+I started on coding the MVP as well as researching what python packages I could use to add to my game. Initially I created a basic game where a player starts in one room, and can navigate to their choice of two other rooms. Once I had successfully achieved that I would know how to implement that same feature into the main game. By this point I had also decided on some python packages that I could add to the game to create some atmosphere. Although ASCII art and Typewriter were initially planned, incorporating them was not viable, and instead I settled for simply using a text colouring package, pygame for music, os for files, and sys to allow the user to quit the game if they like.  
+
+![trellooo](https://i.imgur.com/OuZ3hr6.jpg)
+![checklist](https://i.imgur.com/yhBazNz.jpg)
+
+Development proceeded smoothly and each day I was able to mark a different feature/component of the development process as completed. The game featured the ability to explore, to solve puzzles, to pick up items and add them to your inventory. I eventually finished coding an MVP that included functions, loops, error testing and everything else that was required. From there I decided to incorporate a second ending to the game as an extra feature, something that I had previously thought of and added to that section of my Trello workspace. 
+
+![Code Basic Game](https://i.imgur.com/dojOg3t.jpg)
+![trello home](https://i.imgur.com/1YJM26y.jpg)
+![extra features](https://i.imgur.com/EQmWweT.jpg)
+
+After I had completed the alternate ending to the game, my next task was to clean up the code and add some comments for readability. In summary, my implementation plan was as follows: I did some very rough sketches of a very basic overview of the game. I then used Trello to plan out all the features I wanted, and what would be required in an MVP. I then started on building the MVP, and researching python packages, making use of Trello along the way. Once the MVP was built with everything that it required, I decided to add an alternate ending to the game. Finally once all the code was cleaned up and made easier to read, I was able to sit back and enjoy a Trello workspace that looked like this: 
+
+![Trello Done](https://i.imgur.com/DwWifJO.jpg)
 
 ## (R8) Help Documentation
 
