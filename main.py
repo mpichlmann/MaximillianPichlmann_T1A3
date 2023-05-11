@@ -3,7 +3,7 @@ import sys
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
-# Error testing music - if the music does not work,
+# Error handling for music - if the music does not work,
 # the game will still run, but will display an error message.
 # If the music DOES work, then no error message will be displayed,
 # and the game will run as intended, with music.
@@ -31,7 +31,7 @@ def game_over():
 # Play again prompt    
 def play_again():
     while True:
-        # Error testing input - if the user enters one of the options 
+        # Error handling input - if the user enters one of the options 
         # presented the corresponding function will be called. If the user 
         # fails to enter any of the options, an error message will be 
         # displayed and the user will be prompted to enter an input again. 
@@ -1120,7 +1120,7 @@ def game_start():
     print("simply type your choice in lower-case to proceed, but be careful!")
     print("---------------------------------------------------------") 
     while True:
-        # Error test for getting user input.
+        # Error handling for getting user input.
         # If the user enters one of the options presented the corresponding,
         # function will be called. If the user fails to enter any of the 
         # options, an error message will be displayed and the user will be
