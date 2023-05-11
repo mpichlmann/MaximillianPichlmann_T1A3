@@ -1,5 +1,8 @@
 # README
 
+## Video Presentation of Terminal Application
+
+
 ## (R3) Attributions
 ### Music:
 #### Main Menu / Game Start Screen Music:
@@ -43,8 +46,9 @@ The game utilises audio and visual python packages to create a spooky and haunti
 Throughout the game the player has the opportunity to uncover interesting information about the world, the characters, and the story.
 
 ## (R7) Implementation Plan
-https://trello.com/b/c63p91Cr/t1a3 - Link to my Trello implementation plan
+https://trello.com/b/c63p91Cr/t1a3 - Link to my Trello implementation plan where all activity can be viewed
 
+### Implemtation Plan Overview
 Throughout the development of the game I made use of Trello to track, assign, and prioritise different features and components of the game. Initially when I was still getting familiar with Trello, I only created a few basic cards. My first goal was to design the plot of the game, design the MVP (Minimum Viable Product), and to find suitable python packages that could be implemented into the MVP. I knew that as development and designing begun that certain decisions and directions would become obvious and so I didn't worry about having too much structure too early on. 
 
 ![First Image](https://i.imgur.com/VuJncGX.jpg)
