@@ -48,7 +48,7 @@ Throughout the game the player has the opportunity to uncover interesting inform
 ## (R7) Implementation Plan
 https://trello.com/b/c63p91Cr/t1a3 - Link to my Trello implementation plan where all activity can be viewed
 
-### Implemtation Plan Overview
+### Implementation Plan Overview
 Throughout the development of the game I made use of Trello to track, assign, and prioritise different features and components of the game. Initially when I was still getting familiar with Trello, I only created a few basic cards. My first goal was to design the plot of the game, design the MVP (Minimum Viable Product), and to find suitable python packages that could be implemented into the MVP. I knew that as development and designing begun that certain decisions and directions would become obvious and so I didn't worry about having too much structure too early on. 
 
 ![First Image](https://i.imgur.com/VuJncGX.jpg)
@@ -88,9 +88,9 @@ After I had completed the alternate ending to the game, my next task was to clea
 ### Installation Instructions
 I have tried my best to cater to a range of devices and setups by creating three different bash scripts to choose from. Simply navigate to the 'src' directory where you can then enter into your terminal your choice of './LinuxGame.sh' or './MacGame.sh' depending on your OS. 
 
-These scripts will first install some libraries using either sudo apt-get for linux or brew for mac. These scripts are the way the game is intended to be played as the libraries are required for pygame mixer to play music properly during the game. After installing the necessary libraries they will then install the necessary dependencies for the game by using pip3 to read the requirements.txt file. 
+These scripts will first install some libraries using either sudo apt-get for linux or brew for mac. These scripts are the way the game is intended to be played as the libraries are required for pygame mixer to play music properly during the game. After installing the necessary libraries they will create and activate a virtual environment in the directory. Finally they will then install the necessary dependencies for the game by using pip3 to read the requirements.txt filecreate and activate a virtual
 
-If for whatever reason these bash scripts do not work, you can simply run the NoSoundGame script by entering ./NoSoundGame.sh in your terminal in the 'src' directory. This script will simply install the dependencies and forgo installing the libraries needed for music. The game will run fine but will display an 'error' message where music would normally be playing, everything else however still works fine. NOTE: You may already have the afformenntioned libraries installed, in which case running NoSoundGame.sh will result in the game running with sound anyway!
+If for whatever reason these bash scripts do not work, you can simply run the NoSoundGame script by entering ./NoSoundGame.sh in your terminal in the 'src' directory. This script will simply forgo installing the libraries needed for music. The game will run as normal but will display an 'error' message where music would usually be playing, everything else however still works fine. NOTE: You may already have the afformenntioned libraries installed, in which case running NoSoundGame.sh will result in the game running with sound anyway!
 
 ### Dependencies
 The game makes use of a few python packages, which will need to be installed along with their respective dependencies. A list of dependencies can be found in the requirements.txt file included, but I will also list them here for convenience: 
@@ -115,7 +115,7 @@ The game makes use of a few python packages, which will need to be installed alo
 - urllib3==2.0.2
 - yarg==0.1.9
 
-All of these should be installed when your run any of the provided bash scripts mentioned above, however if you wanted to install them manually simply use your terminal to navigate to the game's 'src' directory where the game's source code is located, and once there enter 'pip3 install -r requirements.txt' which will install the required packages and dependencies.
+All of these should be installed when your run any of the provided bash scripts mentioned above, however if you wanted to install them manually simply use your terminal to navigate to the game's 'src' directory where the game's source code is located, create and activate a virtual environment, and enter 'pip3 install -r requirements.txt' which will install the required packages and dependencies.
 
 ### System Requirements 
 All the game requires to the run is modest hardware that any modern PC from the past 10 years would surely have. There is no need for a high powered CPU or GPU, large amounts of RAM or anything of that nature. To run the game users will need an operating system that supports the use of a terminal/command line, such as Linux or Mac. If you are running Windows it is recommended to use an Ubuntu terminal through WSL. 

@@ -14,7 +14,6 @@ except:
     print("Error Loading Music")
 # End of imports
 
-
 # Death screen
 def game_over():
     # Music
