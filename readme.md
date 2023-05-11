@@ -1,7 +1,7 @@
 # README
 
 ## Video Presentation of Terminal Application
-
+https://www.youtube.com/watch?v=YVkbj98YNZs
 
 ## (R3) Attributions
 ### Music:
@@ -70,7 +70,7 @@ Once I had finished designing the plot of the game, I had to make a start on des
 
 I started on coding the MVP as well as researching what python packages I could use to add to my game. Initially I created a basic game where a player starts in one room, and can navigate to their choice of two other rooms. Once I had successfully achieved that I would know how to implement that same feature into the main game. By this point I had also decided on some python packages that I could add to the game to create some atmosphere. Although ASCII art and Typewriter were initially planned, incorporating them was not viable, and instead I settled for simply using a text colouring package, pygame for music, os for files, and sys to allow the user to quit the game if they like.  
 
-![trellooo](https://i.imgur.com/OuZ3hr6.jpg)
+![packages](https://i.imgur.com/OuZ3hr6.jpg)
 ![checklist](https://i.imgur.com/yhBazNz.jpg)
 
 Development proceeded smoothly and each day I was able to mark a different feature/component of the development process as completed. The game featured the ability to explore, to solve puzzles, to pick up items and add them to your inventory. I eventually finished coding an MVP that included functions, loops, error testing and everything else that was required. From there I decided to incorporate a second ending to the game as an extra feature, something that I had previously thought of and added to that section of my Trello workspace. 
