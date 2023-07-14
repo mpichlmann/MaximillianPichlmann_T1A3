@@ -1,6 +1,5 @@
 # Imports
-import sys
-import os
+import sys, os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from colored import fg, attr
 # Error handling for music - if the music does not work,

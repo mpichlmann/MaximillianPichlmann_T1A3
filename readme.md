@@ -1,8 +1,5 @@
 # README
 
-## Video Presentation of Terminal Application
-https://www.youtube.com/watch?v=YVkbj98YNZs
-
 ## (R3) Attributions
 ### Music:
 #### Main Menu / Game Start Screen Music:
